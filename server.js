@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 
 // CONFIG - DOTENV
-const dummy = require("./models/dummy.js");
 require("dotenv").config();
 const PORT = process.env.PORT;
 const mongodbURI = process.env.MONGODB_URI;
