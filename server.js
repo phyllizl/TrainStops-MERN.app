@@ -22,9 +22,15 @@ app.use(express.json()); // express api gives json to react
 //app.use(express.static("public"));
 
 //controllers
-
 const locationsController = require("./controllers/locations.js");
 app.use("/v1/locations", locationsController);
+const mrtController = require("./controllers/mrt");
+app.use("/v1/mrt", mrtController);
+const reviewsController = require("./controllers/reviews");
+app.use("/v1/reviews", reviewsController);
+const usersController = require("./controllers/users");
+app.use("/v1/users", usersController);
+
 
 // CONNECTIONS
 app.get("/", (req, res) => {
