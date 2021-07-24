@@ -18,8 +18,10 @@ app.use(
   })
 );
 app.use(express.json()); // express api gives json to react
-//app.use(express.static("./cra/build")); //change to this so we do not have to shift.
-//app.use(express.static("public"));
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.static("./client/build")); //change to this so we do not have to shift.
+
 
 //controllers
 const locationsController = require("./controllers/locations.js");
