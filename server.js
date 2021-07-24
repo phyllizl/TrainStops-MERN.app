@@ -8,8 +8,8 @@ const session = require("express-session");
 require("dotenv").config();
 const PORT = process.env.PORT;
 const mongodbURI = process.env.MONGODB_URI;
-// MIDDLEWARE
 
+// MIDDLEWARE
 app.use(
   session({
     secret: process.env.SECRET,
@@ -22,6 +22,7 @@ app.use(express.json()); // express api gives json to react
 //app.use(express.static("public"));
 
 //controllers
+
 const locationsController = require("./controllers/locations.js");
 app.use("/v1/locations", locationsController);
 
