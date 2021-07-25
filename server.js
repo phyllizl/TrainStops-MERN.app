@@ -4,6 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 
 // CONFIG - DOTENV
 require("dotenv").config();
@@ -20,7 +21,6 @@ app.use(
 );
 app.use(express.static("public"));
 app.use(express.static("./client/build")); //change to this so we do not have to shift.
-app.use(cors());
 app.use(express.json()); // express api gives json to react
 
 //controllers
@@ -42,7 +42,7 @@ app.listen(PORT, () => {
   console.log("Listening on the port", PORT);
 });
 
-mongoose.connect(mongodbURI, {
+mongoose.connect(mongodbURI , {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

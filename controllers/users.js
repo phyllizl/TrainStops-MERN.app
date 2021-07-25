@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//delete
+//Delete
 router.delete("/:id", (req, res) => {
     Users.findByIdAndRemove(req.params.id, (err, deletedUser) => {
       if (err) {
@@ -45,20 +45,12 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-//update
+//Update
+//AM REALLY NOT SURE ABOUT THIS.....
 router.put("/:id", (req, res) => {
-    Users.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true },
-      (err, updatedUser) => {
-        if (err) {
-          res.status(400).json({ error: err.message });
-        }
-        res.status(200).json(updatedUser);
-      }
-    );
-});
+  res.send("");
+})
+
 
 // EXPORT
 module.exports = router;
