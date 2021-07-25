@@ -1,5 +1,5 @@
 import * as React from "react";
-import Locations from "./Components/Locations.js";
+// import Locations from "./Components/Locations.js";
 import TrainStops from "./TrainStops";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1> TrainStops </h1>
       <TrainStops />
-      <Locations />
+      {/* <Locations /> */}
     </div>
   );
 }
