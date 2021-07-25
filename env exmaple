@@ -1,4 +1,4 @@
 PORT=3003
-MONGODB_URI=mongodb://localhost:27017/trainstops
+MONGODB_URI=mongodb+srv://<YOURACCOUNT>:<PASSWORD>!@cluster0.3q3c1.mongodb.net/project3?retryWrites=true&w=majority
 SECRET=FeedMeSeymour
 APIKEY=<key>
