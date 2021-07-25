@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
         });
 });
 
-//delete
+//Delete
 router.delete("/:id", (req, res) => {
     Holiday.findByIdAndRemove(req.params.id, (err, deletedHoliday) => {
       if (err) {
@@ -47,7 +47,7 @@ router.delete("/:id", (req, res) => {
     });
 });
 
-//update
+//Update
 router.put("/:id", (req, res) => {
     Holiday.findByIdAndUpdate(
       req.params.id,
