@@ -3,10 +3,29 @@ import React from "react";
 //Sign Up Page
 
 const SignUp = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetch("/v1/users", {
+      method: "POST",
+      body: JSON.stringify({
+        username: event.target.username.value,
+        password: event.target.password.value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw new Error("Error in network");
+    });
+  };
+
   return (
     <>
       <h1>Sign Up</h1>
-      <form action="/v1/users/" method="POST">
+      <form onSubmit={handleSubmit}>
         <label for="username"> Username: </label>
         <input name="username" placeholder="username" id="username" /> <br />
         <label for="password"> Password: </label>
