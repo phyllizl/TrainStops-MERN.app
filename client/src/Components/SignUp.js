@@ -1,8 +1,10 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 //Sign Up Page
 
 const SignUp = () => {
+  let history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch("/v1/users", {
@@ -16,7 +18,8 @@ const SignUp = () => {
       },
     }).then((res) => {
       if (res.ok) {
-        return res.json();
+        console.log(res);
+        return history.push("/");
       }
       throw new Error("Error in network");
     });

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { Redirect } from "react-router";
 
 const Locations = () => {
   const apikey = process.env.REACT_APP_APIKEY;
@@ -17,8 +18,7 @@ const Locations = () => {
     })
       .then((res) => {
         if (res.ok) {
-          console.log(res.json());
-          return res.json();
+          return <Redirect to={"/"} />;
         } else {
           throw new Error("Error in network");
         }
