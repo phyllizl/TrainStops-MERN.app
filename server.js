@@ -42,7 +42,7 @@ app.listen(PORT, () => {
   console.log("Listening on the port", PORT);
 });
 
-mongoose.connect(mongodbURI , {
+mongoose.connect(mongodbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

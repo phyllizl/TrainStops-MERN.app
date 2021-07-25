@@ -2,7 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 
 const Locations = () => {
-  const apikey = process.env.APIKEY;
+  const apikey = process.env.REACT_APP_APIKEY;
   const fetchURL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=1.3419004463682798,103.96154272865057&radius=500&type=restaurant&key=${apikey}`;
 
   const [data, setData] = useState([]);

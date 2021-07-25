@@ -1,8 +1,7 @@
-
 import * as React from "react";
 import logo from "./logo.svg";
 import Locations from "./Components/Locations.js";
-import TrainStops from './TrainStops';
+import TrainStops from "./TrainStops";
 
 function App() {
   return (
