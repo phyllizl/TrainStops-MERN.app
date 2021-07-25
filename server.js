@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 // CONFIG - DOTENV
 require("dotenv").config();
 const PORT = process.env.PORT;
-const mongodbURI = process.env.MONGODB_URI;
+const mongodbURI = "mongodb://localhost:27017/trainstops";
 
 // MIDDLEWARE
 app.use(

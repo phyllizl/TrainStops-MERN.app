@@ -10,6 +10,7 @@ const Locations = () => {
   useEffect(() => {
     fetch(fetchURL, {
       method: "GET",
+      // mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
@@ -26,7 +27,7 @@ const Locations = () => {
         console.log(proc);
         return setData(proc);
       });
-  }, []);
+  }, [fetchURL]);
 
   //   const callNearbySearch = async () => {
   //     try {
