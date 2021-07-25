@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
+const cors = require("cors");
 
 // CONFIG - DOTENV
 require("dotenv").config();
@@ -17,11 +18,10 @@ app.use(
     saveUninitialized: false,
   })
 );
-app.use(express.json()); // express api gives json to react
 app.use(express.static("public"));
-app.use(express.json());
 app.use(express.static("./client/build")); //change to this so we do not have to shift.
-
+app.use(cors());
+app.use(express.json()); // express api gives json to react
 
 //controllers
 const locationsController = require("./controllers/locations.js");
@@ -32,7 +32,6 @@ const reviewsController = require("./controllers/reviews");
 app.use("/v1/reviews", reviewsController);
 const usersController = require("./controllers/users");
 app.use("/v1/users", usersController);
-
 
 // CONNECTIONS
 app.get("/", (req, res) => {
