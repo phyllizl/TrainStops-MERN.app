@@ -19,6 +19,7 @@ router.get("/", (req, res) => {
 router.get("/mrtSeed", (req, res) => {
   MRT.remove({}, (err, mrt) => {
     MRT.create(seedMrt, (err, data) => {
+      console.log(seedMrt);
       res.redirect("/mrt");
     });
   });
