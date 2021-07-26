@@ -6,6 +6,7 @@ const session = require("express-session");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const { Client } = require("@googlemaps/google-maps-services-js");
+const path = require("path");
 
 // CONFIG - DOTENV
 require("dotenv").config();
@@ -54,10 +55,15 @@ app.get("/data", (req, res) => {
     });
 });
 
+app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build", "index.html"));
+});
+
 app.listen(PORT, () => {
   console.log("Listening on the port", PORT);
 });
-
 mongoose.connect(mongodbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
