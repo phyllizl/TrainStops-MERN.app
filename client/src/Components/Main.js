@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const Main = () => {
   const [mrtStations, setMrtStations] = useState([]);
-  const [northSouth, setNorthSouth] = useState([]);
+  //const [northSouth, setNorthSouth] = useState([]);
 
   const url = "/v1/mrt";
   useEffect(() => {
@@ -19,7 +19,7 @@ const Main = () => {
     <>
       <h1>
         {mrtStations?.map((ele, index) => (
-          <div>
+          <div key={index}>
             <p>
               {ele?.Station} - {ele?.["Station Name"]}
             </p>
