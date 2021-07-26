@@ -9,6 +9,11 @@ import SignUp from "./Components/SignUp";
 const TrainStops = () => {
   return (
     <Switch>
+      {/* Route to MrtStation Page which shows Top 3 Hotspots */}
+      <Route exact path="/mrt">
+        <MrtStation />
+      </Route>
+
       <Route exact path="/">
         <Main />
         <Link to="/login">
@@ -26,11 +31,6 @@ const TrainStops = () => {
 
       <Route exact path="/signup">
         <SignUp />
-      </Route>
-
-      {/* Route to MrtStation Page which shows Top 3 Hotspots */}
-      <Route exact path="/mrt/:id">
-        <MrtStation />
       </Route>
 
       {/* Route to Location(Hotspot) Page when user is logged in  */}
