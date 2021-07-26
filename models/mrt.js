@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const mrtSchema = mongoose.Schema({
   "Possible Locations": Array,
-  "Station": String,
+  Station: String,
   "Station Name": String,
 });
 
