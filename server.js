@@ -57,7 +57,6 @@ app.get("/data", (req, res) => {
 app.listen(PORT, () => {
   console.log("Listening on the port", PORT);
 });
-
 mongoose.connect(mongodbURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
