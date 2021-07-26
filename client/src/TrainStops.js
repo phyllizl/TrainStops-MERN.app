@@ -15,6 +15,9 @@ const TrainStops = () => {
       </Route>
 
       <Route exact path="/">
+        <Link to="/mrt">
+          <button>mrt</button>
+        </Link>
         <Main />
         <Link to="/login">
           <button>Log in</button>

@@ -6,6 +6,7 @@ const session = require("express-session");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const { Client } = require("@googlemaps/google-maps-services-js");
+const path = require("path");
 
 // CONFIG - DOTENV
 require("dotenv").config();
