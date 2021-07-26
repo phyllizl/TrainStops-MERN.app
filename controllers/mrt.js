@@ -6,7 +6,7 @@ const seedMrt = require("../models/seedMrt");
 
 //Index route => gets all the MRT stations
 router.get("/", (req, res) => {
-    console.log("index working");
+    //console.log("index working");
     MRT.find({}, (err, foundMRTS) => {
       if (err) {
         res.status(400).json({ error: err.message });

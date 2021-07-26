@@ -14,9 +14,11 @@ const Main = () => {
         console.log("data", mrtStations);
     }, [])
 
+
     return(
         <>
             <h1> Landing Page </h1>
+            {mrtStations?.map((ele, index) => ( <p>{ele?.Station}</p> ))}
         </>
     )
 }
