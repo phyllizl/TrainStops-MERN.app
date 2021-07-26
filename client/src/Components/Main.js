@@ -4,23 +4,28 @@ import { useState, useEffect } from "react";
 //This will be the landing page where you get: (a) MRT lines, which are (b) drop down lists that show all the stations in that line
 
 const Main = () => {
+  const [mrtStations, setMrtStations] = useState([]);
+  const [northSouth, setNorthSouth] = useState([]);
 
-    const [mrtStations, setMrtStations] = useState([]);
-
-    useEffect(() => {
-        fetch("/v1/mrt")
-        .then((res) => res.json())
-        .then((data) => setMrtStations(data));
+  const url = "/v1/mrt";
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setMrtStations(data));
         console.log("data", mrtStations);
-    }, [])
+  }, []);
 
-
-    return(
-        <>
-            <h1> Landing Page </h1>
-            {mrtStations?.map((ele, index) => ( <p>{ele?.Station}</p> ))}
-        </>
-    )
-}
+  return (
+    <>
+      <h1>
+        {mrtStations?.map((ele, index) => (
+          <div>
+            <p>{ele?.["Station Name"]}</p>
+          </div>
+        ))}
+      </h1>
+    </>
+  );
+};
 
 export default Main;

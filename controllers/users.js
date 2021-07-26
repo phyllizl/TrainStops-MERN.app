@@ -14,28 +14,51 @@ router.get("/", (req, res) => {
   });
 });
 
-//Find a User by id
-router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  Users.findById(id, (err, foundUsers) => {
+//* /sessions (POST) => login
+router.post("/", (req, res) => {
+  Users.findOne({ username: req.body.username }, (err, foundUser) => {
     if (err) {
-      res.status(StatusCodes.BAD_REQUEST).json({ error: err.message });
+      console.log(err);
+      res.send("oops the db had a problem");
+    } else if (!foundUser) {
+      // if found user is undefined/null not found etc
+      res.send('<a  href="/">Sorry, no user found </a>');
+    } else {
+      // user is found yay!
+      // now let's check if passwords match
+      if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+        // add the user to our session
+        req.session.currentUser = foundUser;
+        // redirect back to our home page
+        res.redirect("/");
+      } else {
+        // passwords do not match
+        res.send('<a href="/"> password does not match </a>');
+      }
     }
-    res.status(StatusCodes.OK).json(foundUsers);
   });
+  //res.send(req.body);
 });
 
 //Create User
-router.post("/", (req, res) => {
+router.post("/new", (req, res) => {
   req.body.password = bcrypt.hashSync(
     req.body.password,
     bcrypt.genSaltSync(10)
   );
+  Users.findOne(
+    { username: req.body.username },
+    (err, foundUser) => {
+      if (foundUser) {
+        return res.status(406).json({ error: err.message });
+      }
+    },
 
-  Users.create(req.body, (error, user) => {
-    console.log("user", user);
-    res.redirect("/");
-  });
+    Users.create(req.body, (error, user) => {
+      console.log("user", user);
+      res.redirect("/");
+    })
+  );
 });
 
 //Delete
