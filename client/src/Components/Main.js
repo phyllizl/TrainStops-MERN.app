@@ -15,6 +15,11 @@ const Main = () => {
     //console.log("data", mrtStations);
   }, []);
 
+  if (mrtStations.length > 1) {
+      const results = mrtStations.filter(stations => stations.Station.includes("NS"));
+      //console.log(results); IT WORKS!!
+  }
+
   return (
     <>
       <h1>
