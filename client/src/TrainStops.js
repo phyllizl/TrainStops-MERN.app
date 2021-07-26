@@ -10,7 +10,7 @@ const TrainStops = () => {
   return (
     <Switch>
       {/* Route to MrtStation Page which shows Top 3 Hotspots */}
-      <Route exact path="/mrt">
+      <Route path="/mrt">
         <MrtStation />
       </Route>
 
@@ -25,16 +25,16 @@ const TrainStops = () => {
       </Route>
 
       {/* Route to Log In page */}
-      <Route exact path="/login">
+      <Route path="/login">
         <LogIn />
       </Route>
 
-      <Route exact path="/signup">
+      <Route path="/signup">
         <SignUp />
       </Route>
 
       {/* Route to Location(Hotspot) Page when user is logged in  */}
-      <Route exact path="/location">
+      <Route path="/location">
         <Location />
       </Route>
 
