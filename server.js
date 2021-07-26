@@ -35,11 +35,6 @@ app.use("/v1/reviews", reviewsController);
 const usersController = require("./controllers/users");
 app.use("/v1/users", usersController);
 
-// CONNECTIONS
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
 app.get("/data", (req, res) => {
   const client = new Client({});
   client
