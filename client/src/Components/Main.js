@@ -5,7 +5,13 @@ import { useState, useEffect } from "react";
 
 const Main = () => {
   const [mrtStations, setMrtStations] = useState([]);
-  //const [northSouth, setNorthSouth] = useState([]);
+  let NS = [];
+  let EW = [];
+  let DT = [];
+  let CC = [];
+  let NE = [];
+  let CG = [];
+  let CE = [];
 
   const url = "/v1/mrt";
   useEffect(() => {
@@ -16,22 +22,41 @@ const Main = () => {
   }, []);
 
   if (mrtStations.length > 1) {
-      const results = mrtStations.filter(stations => stations.Station.includes("NS"));
-      //console.log(results); IT WORKS!!
+    //Get results for North South line
+    NS = mrtStations.filter((stations) => stations.Station.includes("NS"));
+
+    //Get results for East West line
+    EW = mrtStations.filter((stations) => stations.Station.includes("EW"));
+
+    //Get results for Downtown line
+    DT = mrtStations.filter((stations) => stations.Station.includes("DT"));
+
+    //Get results for Circle line
+    CC = mrtStations.filter((stations) => stations.Station.includes("CC"));
+
+    //Get results for North East line
+    NE = mrtStations.filter((stations) => stations.Station.includes("NE"));
+
+    //Get results for CG line (Changi Airport)
+    CG = mrtStations.filter((stations) => stations.Station.includes("CG"));
+
+    //Get results for CE line (Marina Bay)
+    CE = mrtStations.filter((stations) => stations.Station.includes("CE"));
   }
 
   return (
-    <>
-      <h1>
-        {mrtStations?.map((ele, index) => (
-          <div key={index}>
-            <p>
+    <div>
+      <h1>Line name</h1>
+      {mrtStations?.map((ele, index) => (
+        <div key={index}>
+          <p>
+            <a href={"/mrt/" + ele?._id}>
               {ele?.Station} - {ele?.["Station Name"]}
-            </p>
-          </div>
-        ))}
-      </h1>
-    </>
+            </a>
+          </p>
+        </div>
+      ))}
+    </div>
   );
 };
 
