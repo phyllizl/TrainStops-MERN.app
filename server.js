@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
+const { Client } = require("@googlemaps/google-maps-services-js");
 
 // CONFIG - DOTENV
 require("dotenv").config();
@@ -37,6 +38,25 @@ app.use("/v1/users", usersController);
 // CONNECTIONS
 app.get("/", (req, res) => {
   res.send("Hello World");
+});
+
+app.get("/data", (req, res) => {
+  const client = new Client({});
+  client
+    .placesNearby({
+      params: {
+        location: { lat: 1.3419004463682798, lng: 103.96154272865057 },
+        radius: 500,
+        key: process.env.APIKEY,
+      },
+      timeout: 1000, // milliseconds
+    })
+    .then((r) => {
+      console.log(r.data.results);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 });
 
 app.listen(PORT, () => {
