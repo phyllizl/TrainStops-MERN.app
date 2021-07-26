@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/locationresult", (req, res) => {
+router.get("/result", (req, res) => {
   const client = new Client({});
   client
     .placesNearby({
@@ -29,7 +29,7 @@ router.get("/locationresult", (req, res) => {
     })
     .then((r) => {
       console.log(r.data.results);
-      res.redirect("/");
+      res.send(r.data.results);
     })
     .catch((e) => {
       console.log(e);

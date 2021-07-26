@@ -34,7 +34,7 @@ const TrainStops = () => {
       </Route>
 
       {/* Route to Location(Hotspot) Page when user is logged in  */}
-      <Route exact path="/users/:id">
+      <Route exact path="/location">
         <Location />
       </Route>
 
