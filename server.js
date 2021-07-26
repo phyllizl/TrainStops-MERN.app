@@ -3,9 +3,6 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const session = require("express-session");
-const cors = require("cors");
-const bcrypt = require("bcrypt");
-const { Client } = require("@googlemaps/google-maps-services-js");
 const path = require("path");
 
 // CONFIG - DOTENV
@@ -35,25 +32,6 @@ const reviewsController = require("./controllers/reviews");
 app.use("/v1/reviews", reviewsController);
 const usersController = require("./controllers/users");
 app.use("/v1/users", usersController);
-
-app.get("/data", (req, res) => {
-  const client = new Client({});
-  client
-    .placesNearby({
-      params: {
-        location: { lat: 1.3419004463682798, lng: 103.96154272865057 },
-        radius: 500,
-        key: process.env.APIKEY,
-      },
-      timeout: 1000, // milliseconds
-    })
-    .then((r) => {
-      console.log(r.data.results);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
-});
 
 app.use(express.static(path.join(__dirname, "./client/build")));
 
