@@ -12,7 +12,7 @@ const Main = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setMrtStations(data));
-        console.log("data", mrtStations);
+    //console.log("data", mrtStations);
   }, []);
 
   return (
@@ -20,7 +20,9 @@ const Main = () => {
       <h1>
         {mrtStations?.map((ele, index) => (
           <div>
-            <p>{ele?.["Station Name"]}</p>
+            <p>
+              {ele?.Station} - {ele?.["Station Name"]}
+            </p>
           </div>
         ))}
       </h1>
