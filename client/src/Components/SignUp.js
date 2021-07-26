@@ -20,8 +20,7 @@ const SignUp = () => {
       if (res.ok) {
         console.log(res);
         return history.push("/");
-      }
-      throw new Error("Error in network");
+      } else new Error("user is already in used");
     });
   };
 
