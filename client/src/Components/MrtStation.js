@@ -1,26 +1,50 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 //This will be the MRT station page that shows (a) Top 3 Hotspot Locations
 
 const MrtStation = () => {
+  const params = useParams();
+  const [currentMrt, setCurrentMrt] = useState([]);
   const [locationFetch, setLocationFetch] = useState([]);
 
   useEffect(() => {
-    fetch("/v1/locations/result")
-      .then(
-        (data) => data.json(),
-        (err) => console.log(err)
-      )
-      .then(
-        (parsedData) => setLocationFetch(parsedData),
-        (err) => console.log(err)
-      );
-  },[]);
+    const callNearbySearch = async () => {
+      try {
+        const mrt = await fetch("/v1/mrt").then(
+          (response) => response.json(),
+          (err) => console.log(err)
+        );
+        const chooseMrt = mrt.filter((m) => {
+          if (m._id === params.id) {
+            console.log(m._id, params.id);
+            return true;
+          } else {
+            return false;
+          }
+        });
+        setCurrentMrt(chooseMrt[0]);
+        console.log("mrt", chooseMrt, currentMrt);
+
+        const hotspots = await fetch(`/v1/mrt/${chooseMrt[0]._id}`).then(
+          (response) => response.json(),
+          (err) => console.log(err)
+        );
+        console.log("hotspots", hotspots);
+        setLocationFetch(hotspots);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    callNearbySearch();
+  }, []);
 
   return (
     <>
       <div>
-        <h1> Station Name </h1>
+        <h1>
+          {currentMrt?.["Station"]} - {currentMrt?.["Station Name"]}{" "}
+        </h1>
         <div>
           {locationFetch.map((loc, index) => (
             <p key={index}>{loc.name}</p>
