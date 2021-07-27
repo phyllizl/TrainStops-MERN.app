@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-
+import { LoggedContext } from "../App";
 //This will be the Log In page
 
 const LogIn = () => {
   const [errorMessage, setErrorMessage] = useState("");
+  const loggedContext = useContext(LoggedContext);
   let history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,6 +32,8 @@ const LogIn = () => {
             "Error logging in! Please provide correct username and password."
           );
         } else {
+          console.log(resJson);
+          loggedContext.setLogState(resJson);
           return history.push("/");
         }
       });

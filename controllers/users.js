@@ -14,32 +14,6 @@ router.get("/", (req, res) => {
   });
 });
 
-//* /sessions (POST) => login
-router.post("/", (req, res) => {
-  Users.findOne({ username: req.body.username }, (err, foundUser) => {
-    if (err) {
-      console.log(err);
-      res.status(400).json({ error: err.message });
-    } else if (!foundUser) {
-      // if found user is undefined/null not found etc
-      res.json({ error: "Sorry, no user found" });
-    } else {
-      // user is found yay!
-      // now let's check if passwords match
-      if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-        // add the user to our session
-        req.session.currentUser = foundUser;
-        // redirect back to our home page
-        res.json({ foundUser: foundUser });
-      } else {
-        // passwords do not match
-        res.json({ error: "password does not match" });
-      }
-    }
-  });
-  //res.send(req.body);
-});
-
 //Create User
 router.post("/new", (req, res) => {
   req.body.password = bcrypt.hashSync(
@@ -56,22 +30,6 @@ router.post("/new", (req, res) => {
       res.json({ user: user });
     }
   });
-});
-
-//Delete
-router.delete("/:id", (req, res) => {
-  Users.findByIdAndRemove(req.params.id, (err, deletedUser) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-    }
-    res.status(200).json(deletedUser);
-  });
-});
-
-//Update
-//AM REALLY NOT SURE ABOUT THIS.....
-router.put("/:id", (req, res) => {
-  res.send("");
 });
 
 // EXPORT
