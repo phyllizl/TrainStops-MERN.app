@@ -29,4 +29,32 @@ router.get("/mrtSeed", (req, res) => {
 //Find by id
 router.get("/:id", (req, res) => {
   const id = req.params.id;
+  const client = new Client({});
+  MRT.findById(id, (err, foundMRT) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+    }
+    const mrtLat = parseFloat(foundMRT["Possible Locations"][0]["LATITUDE"]);
+    console.log(mrtLat);
+    const mrtLng = parseFloat(foundMRT["Possible Locations"][0]["LONGITUDE"]);
+    console.log(mrtLng);
+    client
+      .placesNearby({
+        params: {
+          location: { lat: mrtLat, lng: mrtLng },
+          radius: 500,
+          type: "point_of_interest",
+          key: process.env.APIKEY,
+        },
+        timeout: 1000, // milliseconds
+      })
+      .then((r) => {
+        console.log(r.data.results);
+        res.send(r.data.results);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    // res.status(200).json(foundMRT);
+  });
 })
