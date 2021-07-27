@@ -67,6 +67,7 @@ const Main = () => {
     <div>
       <label for="EW"> East West Line </label><br/>
         <select id="EW" onChange={handleClick}>
+          <option value="" disabled selected>Choose Station</option>
           {EW?.map((ele) => (
             <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
           ))}
@@ -74,6 +75,7 @@ const Main = () => {
       
       <label for="NS"> North South Line </label><br/>
         <select id="NS" onChange={handleClick}>
+          <option value="" disabled selected>Choose Station</option>
           {NS?.map((ele) => (
             <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
           ))}
@@ -81,6 +83,7 @@ const Main = () => {
       
       <label for="DT"> Downtown Line </label><br/>
         <select id="DT" onChange={handleClick}>
+          <option value="" disabled selected>Choose Station</option>
           {DT?.map((ele) => (
             <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
           ))}
@@ -88,6 +91,7 @@ const Main = () => {
       
       <label for="CC"> Circle Line </label><br/>
         <select id="CC" onChange={handleClick}>
+          <option value="" disabled selected>Choose Station</option>
           {CC?.map((ele) => (
             <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
           ))}
@@ -95,6 +99,7 @@ const Main = () => {
       
       <label for="NE"> North East Line </label><br/>
         <select id="NE" onChange={handleClick}>
+          <option value="" disabled selected>Choose Station</option>
           {NE?.map((ele) => (
             <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
           ))}
