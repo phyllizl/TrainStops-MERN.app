@@ -46,17 +46,18 @@ const Main = () => {
   }
 
   return (
-    <>
-      <h1>
-        {mrtStations?.map((ele, index) => (
-          <div key={index}>
-            <p>
+    <div>
+      <h1>Line name</h1>
+      {mrtStations?.map((ele, index) => (
+        <div key={index}>
+          <p>
+            <a href={"/mrt/" + ele?._id}>
               {ele?.Station} - {ele?.["Station Name"]}
-            </p>
-          </div>
-        ))}
-      </h1>
-    </>
+            </a>
+          </p>
+        </div>
+      ))}
+    </div>
   );
 };
 
