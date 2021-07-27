@@ -35,7 +35,7 @@ const TrainStops = () => {
       </Route>
 
       {/* Route to Location(Hotspot) Page when user is logged in  */}
-      <Route path="/location">
+      <Route path="/location/:placeid">
         <Location />
       </Route>
 

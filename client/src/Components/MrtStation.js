@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 const MrtStation = () => {
   const params = useParams();
   const [currentMrt, setCurrentMrt] = useState([]);
-  const [locationFetch, setLocationFetch] = useState([]);
+  const [hotspotsFetch, setHotspotsFetch] = useState([]);
 
   useEffect(() => {
     const callNearbySearch = async () => {
@@ -22,7 +22,7 @@ const MrtStation = () => {
           (err) => console.log(err)
         );
         console.log("hotspots", hotspots);
-        setLocationFetch(hotspots);
+        setHotspotsFetch(hotspots);
       } catch (err) {
         console.log(err);
       }
@@ -38,8 +38,10 @@ const MrtStation = () => {
         </h1>
         <div>
           {/* <Hotspots /> */}
-          {locationFetch.map((loc, index) => (
-            <p key={index}>{loc.name}</p>
+          {hotspotsFetch.map((loc, index) => (
+            <a href={"/location/" + loc["place_id"]} key={index}>
+              <p>{loc["name"]}</p>
+            </a>
           ))}
         </div>
       </div>

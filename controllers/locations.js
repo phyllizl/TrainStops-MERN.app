@@ -15,17 +15,15 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/result", (req, res) => {
+router.get("/:placeid", (req, res) => {
   const client = new Client({});
   client
-    .placesNearby({
+    .getDetails({
       params: {
-        location: { lat: 1.3419004463682798, lng: 103.96154272865057 },
-        radius: 500,
-        type: "point_of_interest",
+        place_id: req.params.placeid,
         key: process.env.APIKEY,
       },
-      timeout: 1000, // milliseconds
+      timeout: 1000,
     })
     .then((r) => {
       console.log(r.data.results);
