@@ -1,9 +1,12 @@
+import { NoSsr } from "@material-ui/core";
 import React from "react";
 import { useState, useEffect } from "react";
+import { Route, useHistory } from "react-router-dom";
 
 //This will be the landing page where you get: (a) MRT lines, which are (b) drop down lists that show all the stations in that line
 
 const Main = () => {
+  const history = useHistory();
   const [mrtStations, setMrtStations] = useState([]);
   let NS = [];
   let EW = [];
@@ -39,24 +42,64 @@ const Main = () => {
   
       //Get results for CG line (Changi Airport)
       CG = mrtStations.filter(stations => stations.Station.includes("CG"));
+      //Add this to EW line
+      EW.push(CG[0], CG[1]);
    
       //Get results for CE line (Marina Bay)
       CE = mrtStations.filter(stations => stations.Station.includes("CE"));
-    
+      //Add this to NS line
+      NS.push(CE[0], CE[1]);
+      
   }
+
+  //create handleClick function to track selected mrt
+  const handleClick = (event) => {
+    event.preventDefault()
+    const index = event.target.selectedIndex;
+    const optionElement = event.target.childNodes[index];
+    const optionElementId = optionElement.getAttribute('id');
+    console.log(optionElementId);
+    history.push(`/mrt/${optionElementId}`);
+  }
+ 
 
   return (
     <div>
-      <h1>Line name</h1>
-      {mrtStations?.map((ele, index) => (
-        <div key={index}>
-          <p>
-            <a href={"/mrt/" + ele?._id}>
-              {ele?.Station} - {ele?.["Station Name"]}
-            </a>
-          </p>
-        </div>
-      ))}
+      <label for="EW"> East West Line </label><br/>
+        <select id="EW" onChange={handleClick}>
+          {EW?.map((ele) => (
+            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
+          ))}
+        </select><br />
+      
+      <label for="NS"> North South Line </label><br/>
+        <select id="NS" onChange={handleClick}>
+          {NS?.map((ele) => (
+            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
+          ))}
+        </select><br />
+      
+      <label for="DT"> Downtown Line </label><br/>
+        <select id="DT" onChange={handleClick}>
+          {DT?.map((ele) => (
+            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
+          ))}
+        </select><br />
+      
+      <label for="CC"> Circle Line </label><br/>
+        <select id="CC" onChange={handleClick}>
+          {CC?.map((ele) => (
+            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
+          ))}
+        </select><br />
+      
+      <label for="NE"> North East Line </label><br/>
+        <select id="NE" onChange={handleClick}>
+          {NE?.map((ele) => (
+            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
+          ))}
+        </select><br />
+    
     </div>
   );
 };
