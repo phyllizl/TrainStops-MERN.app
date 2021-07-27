@@ -25,81 +25,103 @@ const Main = () => {
   }, []);
 
   if (mrtStations.length > 1) {
-      //Get results for North South line
-      NS = mrtStations.filter(stations => stations.Station.includes("NS"));
-    
-      //Get results for East West line
-      EW = mrtStations.filter(stations => stations.Station.includes("EW"));
-   
-      //Get results for Downtown line
-      DT = mrtStations.filter(stations => stations.Station.includes("DT"));
-  
-      //Get results for Circle line
-      CC = mrtStations.filter(stations => stations.Station.includes("CC"));
-     
-      //Get results for North East line
-      NE = mrtStations.filter(stations => stations.Station.includes("NE"));
-  
-      //Get results for CG line (Changi Airport)
-      CG = mrtStations.filter(stations => stations.Station.includes("CG"));
-      //Add this to EW line
-      EW.push(CG[0], CG[1]);
-   
-      //Get results for CE line (Marina Bay)
-      CE = mrtStations.filter(stations => stations.Station.includes("CE"));
-      //Add this to NS line
-      NS.push(CE[0], CE[1]);
-      
+    //Get results for North South line
+    NS = mrtStations.filter((stations) => stations.Station.includes("NS"));
+
+    //Get results for East West line
+    EW = mrtStations.filter((stations) => stations.Station.includes("EW"));
+
+    //Get results for Downtown line
+    DT = mrtStations.filter((stations) => stations.Station.includes("DT"));
+
+    //Get results for Circle line
+    CC = mrtStations.filter((stations) => stations.Station.includes("CC"));
+
+    //Get results for North East line
+    NE = mrtStations.filter((stations) => stations.Station.includes("NE"));
+
+    //Get results for CG line (Changi Airport)
+    CG = mrtStations.filter((stations) => stations.Station.includes("CG"));
+    //Add this to EW line
+    EW.push(CG[0], CG[1]);
+
+    //Get results for CE line (Marina Bay)
+    CE = mrtStations.filter((stations) => stations.Station.includes("CE"));
+    //Add this to NS line
+    NS.push(CE[0], CE[1]);
   }
 
   //create handleClick function to track selected mrt
   const handleClick = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const index = event.target.selectedIndex;
     const optionElement = event.target.childNodes[index];
-    const optionElementId = optionElement.getAttribute('id');
+    const optionElementId = optionElement.getAttribute("id");
     console.log(optionElementId);
     history.push(`/mrt/${optionElementId}`);
-  }
- 
+  };
 
   return (
     <div>
-      <label for="EW"> East West Line </label><br/>
-        <select id="EW" onChange={handleClick}>
-          {EW?.map((ele) => (
-            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
-          ))}
-        </select><br />
-      
-      <label for="NS"> North South Line </label><br/>
-        <select id="NS" onChange={handleClick}>
-          {NS?.map((ele) => (
-            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
-          ))}
-        </select><br />
-      
-      <label for="DT"> Downtown Line </label><br/>
-        <select id="DT" onChange={handleClick}>
-          {DT?.map((ele) => (
-            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
-          ))}
-        </select><br />
-      
-      <label for="CC"> Circle Line </label><br/>
-        <select id="CC" onChange={handleClick}>
-          {CC?.map((ele) => (
-            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
-          ))}
-        </select><br />
-      
-      <label for="NE"> North East Line </label><br/>
-        <select id="NE" onChange={handleClick}>
-          {NE?.map((ele) => (
-            <option key={ele?._id} id={ele?._id}> {ele?.["Station Name"]} </option>
-          ))}
-        </select><br />
-    
+      <label for="EW"> East West Line </label>
+      <br />
+      <select id="EW" onChange={handleClick}>
+        {EW?.map((ele) => (
+          <option key={ele?._id} id={ele?._id}>
+            {" "}
+            {ele?.["Station Name"]}{" "}
+          </option>
+        ))}
+      </select>
+      <br />
+
+      <label for="NS"> North South Line </label>
+      <br />
+      <select id="NS" onChange={handleClick}>
+        {NS?.map((ele) => (
+          <option key={ele?._id} id={ele?._id}>
+            {" "}
+            {ele?.["Station Name"]}{" "}
+          </option>
+        ))}
+      </select>
+      <br />
+
+      <label for="DT"> Downtown Line </label>
+      <br />
+      <select id="DT" onChange={handleClick}>
+        {DT?.map((ele) => (
+          <option key={ele?._id} id={ele?._id}>
+            {" "}
+            {ele?.["Station Name"]}{" "}
+          </option>
+        ))}
+      </select>
+      <br />
+
+      <label for="CC"> Circle Line </label>
+      <br />
+      <select id="CC" onChange={handleClick}>
+        {CC?.map((ele) => (
+          <option key={ele?._id} id={ele?._id}>
+            {" "}
+            {ele?.["Station Name"]}{" "}
+          </option>
+        ))}
+      </select>
+      <br />
+
+      <label for="NE"> North East Line </label>
+      <br />
+      <select id="NE" onChange={handleClick}>
+        {NE?.map((ele) => (
+          <option key={ele?._id} id={ele?._id}>
+            {" "}
+            {ele?.["Station Name"]}{" "}
+          </option>
+        ))}
+      </select>
+      <br />
     </div>
   );
 };
