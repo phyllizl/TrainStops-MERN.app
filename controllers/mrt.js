@@ -28,6 +28,7 @@ router.get("/mrtSeed", (req, res) => {
 //Find by id
 router.get("/:id", (req, res) => {
   const id = req.params.id;
+  console.log("id", id);
   MRT.findById(id, (err, foundMRT) => {
     if (err) {
       res.status(400).json({ error: err.message });
