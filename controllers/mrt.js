@@ -57,4 +57,7 @@ router.get("/:id", (req, res) => {
       });
     // res.status(200).json(foundMRT);
   });
-})
+});
+
+// EXPORT
+module.exports = router;
