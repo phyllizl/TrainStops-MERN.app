@@ -30,7 +30,7 @@ const TrainStops = () => {
       </Route>
 
       {/* Route to MrtStation Page which shows Top 3 Hotspots */}
-      <Route path="/mrt">
+      <Route path="/mrt/:id">
         <MrtStation />
       </Route>
 

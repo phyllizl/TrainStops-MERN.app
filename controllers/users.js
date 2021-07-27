@@ -19,10 +19,10 @@ router.post("/", (req, res) => {
   Users.findOne({ username: req.body.username }, (err, foundUser) => {
     if (err) {
       console.log(err);
-      res.send("oops the db had a problem");
+      res.status(400).json({ error: err.message });
     } else if (!foundUser) {
       // if found user is undefined/null not found etc
-      res.send('<a  href="/">Sorry, no user found </a>');
+      res.json({ error: "Sorry, no user found" });
     } else {
       // user is found yay!
       // now let's check if passwords match
@@ -30,10 +30,10 @@ router.post("/", (req, res) => {
         // add the user to our session
         req.session.currentUser = foundUser;
         // redirect back to our home page
-        res.redirect("/");
+        res.json({ foundUser: foundUser });
       } else {
         // passwords do not match
-        res.send('<a href="/"> password does not match </a>');
+        res.json({ error: "password does not match" });
       }
     }
   });
@@ -46,19 +46,16 @@ router.post("/new", (req, res) => {
     req.body.password,
     bcrypt.genSaltSync(10)
   );
-  Users.findOne(
-    { username: req.body.username },
-    (err, foundUser) => {
-      if (foundUser) {
-        return res.status(406).json({ error: err.message });
-      }
-    },
-
-    Users.create(req.body, (error, user) => {
+  console.log("creating");
+  Users.create(req.body, (error, user) => {
+    if (error) {
+      console.log("error", error);
+      res.json({ error: error.message });
+    } else {
       console.log("user", user);
-      res.redirect("/");
-    })
-  );
+      res.json({ user: user });
+    }
+  });
 });
 
 //Delete

@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 //Sign Up Page
 
 const SignUp = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   let history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("/v1/users", {
+    fetch("/v1/users/new", {
       method: "POST",
       body: JSON.stringify({
         username: event.target.username.value,
@@ -16,12 +17,21 @@ const SignUp = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (res.ok) {
-        console.log(res);
-        return history.push("/");
-      } else new Error("user is already in used");
-    });
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Error in network");
+      })
+      .then((resJson) => {
+        //console.log(resJson.error);
+        if (resJson.error) {
+          return setErrorMessage("Error in creating user");
+        } else {
+          return history.push("/");
+        }
+      });
   };
 
   return (
@@ -35,6 +45,7 @@ const SignUp = () => {
         <br />
         <input type="submit" value="Sign Up" />
       </form>
+      {errorMessage}
     </>
   );
 };

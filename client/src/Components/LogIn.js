@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 //This will be the Log In page
 
 const LogIn = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   let history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,13 +17,23 @@ const LogIn = () => {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      if (res.ok) {
-        console.log(res);
-        return history.push("/");
-      }
-      throw new Error("Error in network");
-    });
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        throw new Error("Error in network");
+      })
+      .then((resJson) => {
+        //console.log(resJson.error);
+        if (resJson.error) {
+          return setErrorMessage(
+            "Error logging in! Please provide correct username and password."
+          );
+        } else {
+          return history.push("/");
+        }
+      });
   };
   return (
     <>
@@ -36,6 +47,7 @@ const LogIn = () => {
         <input type="submit" value="Log in" />
       </form>
       <a href="/">Back to main</a>
+      {errorMessage}
     </>
   );
 };
