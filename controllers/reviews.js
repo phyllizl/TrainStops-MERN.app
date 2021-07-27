@@ -19,9 +19,9 @@ router.get("/:id", (req, res) => {
   const id = req.params.id;
   Reviews.findById(id, (err, foundReview) => {
     if (err) {
-      res.status(StatusCodes.BAD_REQUEST).json({ error: err.message });
+      res.status(400).json({ error: err.message });
     }
-    res.status(StatusCodes.OK).json(foundReview);
+    res.status(200).json(foundReview);
   });
 });
 
@@ -40,25 +40,25 @@ router.post("/", (req, res) => {
 
 //Delete
 router.delete("/:id", (req, res) => {
-  Holiday.findByIdAndRemove(req.params.id, (err, deletedHoliday) => {
+  Reviews.findByIdAndRemove(req.params.id, (err, deletedReview) => {
     if (err) {
       res.status(400).json({ error: err.message });
     }
-    res.status(200).json(deletedHoliday);
+    res.status(200).json(deletedReview);
   });
 });
 
 //Update
 router.put("/:id", (req, res) => {
-  Holiday.findByIdAndUpdate(
+  Review.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true },
-    (err, updatedHoliday) => {
+    (err, updatedReview) => {
       if (err) {
         res.status(400).json({ error: err.message });
       }
-      res.status(200).json(updatedHoliday);
+      res.status(200).json(updatedReview);
     }
   );
 });

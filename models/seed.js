@@ -1,8 +1,178 @@
 // example api calls
 
+// Find by text Query
+// https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Okta%20Pte%20Ltd&inputtype=textquery
+const findByText = {
+  candidates: [
+    {
+      place_id: "ChIJkxYt64YX2jER4f0-yuTlE_4",
+    },
+  ],
+  status: "OK",
+};
+
+// Place ID Query
+// https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJkxYt64YX2jER4f0-yuTlE_4
+const placeId = {
+  html_attributions: [],
+  result: {
+    address_components: [
+      {
+        long_name: "Singapore",
+        short_name: "SG",
+        types: ["country", "political"],
+      },
+      {
+        long_name: "Bedok",
+        short_name: "Bedok",
+        types: ["neighborhood", "political"],
+      },
+      {
+        long_name: "Singapore",
+        short_name: "Singapore",
+        types: ["locality", "political"],
+      },
+      {
+        long_name: "415979",
+        short_name: "415979",
+        types: ["postal_code"],
+      },
+    ],
+    adr_address:
+      '60 Kaki Bukit Place, <span class="street-address">#04-14 Eunos Techpark</span>, <span class="country-name">Singapore</span> <span class="postal-code">415979</span>',
+    business_status: "OPERATIONAL",
+    formatted_address:
+      "60 Kaki Bukit Place, #04-14 Eunos Techpark, Singapore 415979",
+    formatted_phone_number: "8337 9885",
+    geometry: {
+      location: {
+        lat: 1.3345399,
+        lng: 103.9047836,
+      },
+      viewport: {
+        northeast: {
+          lat: 1.336009630291502,
+          lng: 103.9060013802915,
+        },
+        southwest: {
+          lat: 1.333311669708498,
+          lng: 103.9033034197085,
+        },
+      },
+    },
+    icon: "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+    icon_background_color: "#7B9EB0",
+    icon_mask_base_uri:
+      "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_pinlet",
+    international_phone_number: "+65 8337 9885",
+    name: "Okta Pte Ltd",
+    opening_hours: {
+      open_now: true,
+      periods: [
+        {
+          close: {
+            day: 0,
+            time: "1500",
+          },
+          open: {
+            day: 0,
+            time: "1000",
+          },
+        },
+        {
+          close: {
+            day: 1,
+            time: "1930",
+          },
+          open: {
+            day: 1,
+            time: "1100",
+          },
+        },
+        {
+          close: {
+            day: 2,
+            time: "1930",
+          },
+          open: {
+            day: 2,
+            time: "1100",
+          },
+        },
+        {
+          close: {
+            day: 4,
+            time: "1930",
+          },
+          open: {
+            day: 4,
+            time: "1100",
+          },
+        },
+        {
+          close: {
+            day: 5,
+            time: "1930",
+          },
+          open: {
+            day: 5,
+            time: "1100",
+          },
+        },
+        {
+          close: {
+            day: 6,
+            time: "1500",
+          },
+          open: {
+            day: 6,
+            time: "1000",
+          },
+        },
+      ],
+      weekday_text: [
+        "Monday: 11:00 am – 7:30 pm",
+        "Tuesday: 11:00 am – 7:30 pm",
+        "Wednesday: Closed",
+        "Thursday: 11:00 am – 7:30 pm",
+        "Friday: 11:00 am – 7:30 pm",
+        "Saturday: 10:00 am – 3:00 pm",
+        "Sunday: 10:00 am – 3:00 pm",
+      ],
+    },
+    place_id: "ChIJkxYt64YX2jER4f0-yuTlE_4",
+    plus_code: {
+      compound_code: "8WM3+RW Singapore",
+      global_code: "6PH58WM3+RW",
+    },
+    rating: 5,
+    reference: "ChIJkxYt64YX2jER4f0-yuTlE_4",
+    reviews: [
+      {
+        author_name: "Jyren Koh",
+        author_url:
+          "https://www.google.com/maps/contrib/100625736677765058522/reviews",
+        language: "en",
+        profile_photo_url:
+          "https://lh3.googleusercontent.com/a/AATXAJwZNhL-aBfPxytHzCIhEPGhZ6Q_zWohONosVGh7=s128-c0x00000000-cc-rp-mo-ba5",
+        rating: 5,
+        relative_time_description: "3 years ago",
+        text: "Great! Fixed my iPad there.",
+        time: 1528943323,
+      },
+    ],
+    types: ["electronics_store", "point_of_interest", "store", "establishment"],
+    url: "https://maps.google.com/?cid=18308229680999628257",
+    user_ratings_total: 1,
+    utc_offset: 480,
+    vicinity: "60 Kaki Bukit Place, #04-14 Eunos Techpark",
+  },
+  status: "OK",
+};
+
 // NearbySearch Query
 // https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=1.3419004463682798,103.96154272865057&radius=500&type=restaurant
-const data = [
+const nearbySearch = [
   {
     html_attributions: [],
     results: [
