@@ -4,6 +4,8 @@ import React from "react";
 
 const Location = () => {
 
+    
+
     return(
         <>
             <h1> Hotspot Location #1 </h1>
