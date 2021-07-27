@@ -29,6 +29,16 @@ router.get("/mrtSeed", (req, res) => {
 //Find by id
 router.get("/:id", (req, res) => {
   const id = req.params.id;
+  MRT.findById(id, (err, foundMRT) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+    }
+    res.status(200).json(foundMRT);
+  });
+});
+
+router.get("/:id/hotspots", (req, res) => {
+  const id = req.params.id;
   const client = new Client({});
   MRT.findById(id, (err, foundMRT) => {
     if (err) {
@@ -50,12 +60,12 @@ router.get("/:id", (req, res) => {
       })
       .then((r) => {
         console.log(r.data.results);
+        // let dataReformat = r.data.results.map;
         res.send(r.data.results);
       })
       .catch((e) => {
         console.log(e);
       });
-    // res.status(200).json(foundMRT);
   });
 });
 

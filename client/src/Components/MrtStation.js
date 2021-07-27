@@ -11,22 +11,13 @@ const MrtStation = () => {
   useEffect(() => {
     const callNearbySearch = async () => {
       try {
-        const mrt = await fetch("/v1/mrt").then(
+        const mrt = await fetch(`/v1/mrt/${params.id}`).then(
           (response) => response.json(),
           (err) => console.log(err)
         );
-        const chooseMrt = mrt.filter((m) => {
-          if (m._id === params.id) {
-            console.log(m._id, params.id);
-            return true;
-          } else {
-            return false;
-          }
-        });
-        setCurrentMrt(chooseMrt[0]);
-        console.log("mrt", chooseMrt, currentMrt);
+        setCurrentMrt(mrt);
 
-        const hotspots = await fetch(`/v1/mrt/${chooseMrt[0]._id}`).then(
+        const hotspots = await fetch(`/v1/mrt/${params.id}/hotspots`).then(
           (response) => response.json(),
           (err) => console.log(err)
         );
@@ -37,15 +28,16 @@ const MrtStation = () => {
       }
     };
     callNearbySearch();
-  }, []);
+  }, [params.id]);
 
   return (
     <>
       <div>
         <h1>
-          {currentMrt?.["Station"]} - {currentMrt?.["Station Name"]}{" "}
+          {currentMrt?.["Station"]} - {currentMrt?.["Station Name"]}
         </h1>
         <div>
+          {/* <Hotspots /> */}
           {locationFetch.map((loc, index) => (
             <p key={index}>{loc.name}</p>
           ))}
