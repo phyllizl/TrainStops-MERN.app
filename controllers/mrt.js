@@ -7,17 +7,12 @@ const { Client } = require("@googlemaps/google-maps-services-js");
 
 //Index route => gets all the MRT stations
 router.get("/", (req, res) => {
-  if (req.session.currentUser) {
-    console.log("index working");
     MRT.find({}, (err, foundMRTS) => {
       if (err) {
         res.status(400).json({ error: err.message });
       }
       res.status(200).json(foundMRTS);
     });
-  } else {
-    res.redirect('/login');
-  }
 });
 
 //Seed Route
@@ -49,9 +44,9 @@ router.get("/:id/hotspots", (req, res) => {
       res.status(400).json({ error: err.message });
     }
     const mrtLat = parseFloat(foundMRT["Possible Locations"][0]["LATITUDE"]);
-    console.log(mrtLat);
+    // console.log(mrtLat);
     const mrtLng = parseFloat(foundMRT["Possible Locations"][0]["LONGITUDE"]);
-    console.log(mrtLng);
+    // console.log(mrtLng);
     client
       .placesNearby({
         params: {
@@ -63,7 +58,7 @@ router.get("/:id/hotspots", (req, res) => {
         timeout: 1000, // milliseconds
       })
       .then((r) => {
-        console.log(r.data.results);
+        // console.log(r.data.results);
         // let dataReformat = r.data.results.map;
         res.send(r.data.results);
       })

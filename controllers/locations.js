@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 router.get("/:placeid", (req, res) => {
   const client = new Client({});
   client
-    .getDetails({
+    .placeDetails({
       params: {
         place_id: req.params.placeid,
         key: process.env.APIKEY,
@@ -26,8 +26,8 @@ router.get("/:placeid", (req, res) => {
       timeout: 1000,
     })
     .then((r) => {
-      console.log(r.data.results);
-      res.send(r.data.results);
+      console.log(r);
+      res.send(r.data.result);
     })
     .catch((e) => {
       console.log(e);
