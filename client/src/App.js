@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import TrainStops from "./TrainStops";
+import Navbar from "./Components/Navbar";
 import LogoutButton from "./Components/LogoutButton";
 export const LoggedContext = createContext();
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <LoggedContext.Provider value={logState}>
       <div className="App">
+        <Navbar />
         <h1> TrainStops </h1>
         {logState !== null ? (
           <a href={`/users/${logState._id}`}>{logState.username}</a>
