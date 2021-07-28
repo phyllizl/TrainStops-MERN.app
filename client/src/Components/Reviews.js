@@ -1,11 +1,11 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-const Reviews = ({ placeId }) => {
+const Reviews = ({ searchId, queryType }) => {
   const [fetchReviews, setFetchReviews] = useState();
 
   useEffect(() => {
-    fetch("/v1/reviews/", {
+    fetch(`/v1/reviews/${queryType}/${searchId}`, {
       method: "GET",
       // body: JSON.stringify(postReview),
       headers: {
@@ -29,9 +29,9 @@ const Reviews = ({ placeId }) => {
   return (
     <div>
       <ul>
-        <li>review here</li>
-        <li>review here</li>
-        <li>review here</li>
+        {fetchReviews?.map((rev, index) => (
+          <li key={index}>{rev.reviews}</li>
+        ))}
       </ul>
     </div>
   );

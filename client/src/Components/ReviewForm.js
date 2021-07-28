@@ -2,22 +2,23 @@ import * as React from "react";
 import { useContext } from "react";
 import { LoggedContext } from "../App";
 
-const ReviewForm = ({ placeId, placeName, user }) => {
+const ReviewForm = ({ placeId, placeName, user, queryType }) => {
   const loggedContext = useContext(LoggedContext);
   console.log("context", loggedContext);
-  console.log("user", user);
+  console.log("context id", loggedContext?._id);
 
   const handleReview = (e) => {
     e.preventDefault();
     console.log(e.target.elements.review.value);
     const inputReview = e.target.elements.review.value;
     const postReview = {
-      user_id: user?._id,
+      user_id: loggedContext?._id,
       location_id: placeId,
       location_name: placeName,
       review: inputReview,
     };
-    fetch("/v1/reviews", {
+    console.log("post rev userid", postReview.userId);
+    fetch(`/v1/reviews`, {
       method: "POST",
       body: JSON.stringify(postReview),
       headers: {

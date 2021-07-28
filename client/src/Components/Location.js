@@ -45,11 +45,12 @@ const Location = ({ logState }) => {
       </div>
       <div>
         <ReviewForm
+          queryType="location"
           placeId={params.placeid}
           placeName={locationFetch?.name}
           user={logState}
         />
-        <Reviews />
+        <Reviews queryType="location" searchId={params.placeid} />
       </div>
     </div>
   );

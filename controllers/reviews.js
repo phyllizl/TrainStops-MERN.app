@@ -16,9 +16,23 @@ router.get("/", (req, res) => {
 });
 
 //Find Review by Id
-router.get("/:id", (req, res) => {
+router.get("/location/:id", (req, res) => {
   const id = req.params.id;
+  console.log(id);
   Reviews.find({ location_id: id }, (err, foundReview) => {
+    console.log(foundReview);
+    if (err) {
+      res.status(400).json({ error: err.message });
+    }
+    res.status(200).json(foundReview);
+  });
+});
+
+router.get("/users/:id", (req, res) => {
+  const id = Mongoose.Types.ObjectId(req.params.id);
+  console.log(id);
+  Reviews.find({ user_id: id }, (err, foundReview) => {
+    console.log(foundReview);
     if (err) {
       res.status(400).json({ error: err.message });
     }
@@ -28,12 +42,9 @@ router.get("/:id", (req, res) => {
 
 //Create Review => Only logged in Users can Create a Review
 router.post("/", (req, res) => {
-  console.log("body", req.body);
-  console.log("body username", Mongoose.Types.ObjectId(req.body.username));
-
   // create review
   const newReview = {
-    user_id: Mongoose.Types.ObjectId(req.body.username),
+    user_id: req.body.user_id,
     location_id: req.body.location_id,
     location_name: req.body.location_name,
     reviews: req.body.review,
