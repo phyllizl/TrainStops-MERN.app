@@ -29,7 +29,7 @@ const User = () => {
     <>
       <h1> User Profile </h1>
       {user.username}
-      <Reviews queryType="user" searchId={params.userid} />
+      <Reviews queryType="users" searchId={params.userid} />
     </>
   );
 };

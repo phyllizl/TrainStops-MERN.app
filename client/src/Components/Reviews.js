@@ -24,13 +24,25 @@ const Reviews = ({ searchId, queryType }) => {
         setFetchReviews(resJson);
       })
       .catch((err) => console.error({ Error: err }));
-  }, []);
+  }, [searchId, queryType]);
+
+  const handleClick = (e) => {
+    console.log(e.target.elements);
+  };
 
   return (
     <div>
       <ul>
         {fetchReviews?.map((rev, index) => (
-          <li key={index}>{rev.reviews}</li>
+          <>
+            <li key={index}>
+              {queryType === "users" ? `[${rev.location_name}]` : null}{" "}
+              {rev.reviews}
+            </li>
+            {queryType === "users" ? (
+              <button onClick={handleClick}>Edit</button>
+            ) : null}
+          </>
         ))}
       </ul>
     </div>

@@ -5,6 +5,7 @@ import Main from "./Components/Main";
 import MrtStation from "./Components/MrtStation";
 import SignUp from "./Components/SignUp";
 import User from "./Components/User";
+import ReviewEdit from "./Components/ReviewEdit";
 
 const TrainStops = (props) => {
   return (
@@ -41,6 +42,11 @@ const TrainStops = (props) => {
       {/* Route to User Page when user is logged in  */}
       <Route path="/users/:userid">
         <User />
+      </Route>
+
+      {/* Route for user to edit review */}
+      <Route path="/users/:userid/:reviewid">
+        <ReviewEdit />
       </Route>
     </Switch>
   );
