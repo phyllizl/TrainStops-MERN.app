@@ -44,7 +44,7 @@ router.get("/users/:id", (req, res) => {
 router.post("/", (req, res) => {
   // create review
   const newReview = {
-    user_id: req.body.user_id,
+    user_id: Mongoose.Types.ObjectId(req.body.user_id),
     location_id: req.body.location_id,
     location_name: req.body.location_name,
     reviews: req.body.review,
@@ -54,17 +54,6 @@ router.post("/", (req, res) => {
       return err;
     }
     res.json(newR);
-    // update user with review
-    // Users.findByIdAndUpdate(
-    //   Mongoose.Types.ObjectId(req.body.username),
-    //   //push req.body.review
-    //   { $push: { reviews: newR } },
-    //   { new: true },
-    //   (err, foundUser) => {
-    //     // redirects to the room page
-    //     res.redirect("/room");
-    //   }
-    // );
   });
 });
 

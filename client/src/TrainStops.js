@@ -8,6 +8,7 @@ import User from "./Components/User";
 import { LoggedContext } from "./App";
 import { useContext } from "react";
 import LogoutButton from "./Components/LogoutButton";
+import ReviewEdit from "./Components/ReviewEdit";
 
 const TrainStops = (props) => {
   const loggedContext = useContext(LoggedContext);
@@ -84,6 +85,11 @@ const TrainStops = (props) => {
         {/* Route to User Page when user is logged in  */}
         <Route path="/users/:userid">
           <User />
+        </Route>
+
+        {/* Route for user to edit review */}
+        <Route path="/users/:userid/:reviewid">
+          <ReviewEdit />
         </Route>
       </Switch>
     </>
