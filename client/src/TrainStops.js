@@ -5,18 +5,28 @@ import Main from "./Components/Main";
 import MrtStation from "./Components/MrtStation";
 import SignUp from "./Components/SignUp";
 import User from "./Components/User";
+import { LoggedContext } from "./App";
+import { useContext } from "react";
 
 const TrainStops = (props) => {
+  const loggedContext = useContext(LoggedContext);
+
   return (
     <Switch>
       <Route exact path="/">
         <Main />
-        <Link to="/login">
-          <button>Log in</button>
-        </Link>
-        <Link to="/signup">
-          <button>Sign up</button>
-        </Link>
+        {loggedContext ? (
+          <div></div>
+        ) : (
+          <>
+            <Link to="/login">
+              <button>Log in</button>
+            </Link>
+            <Link to="/signup">
+              <button>Sign up</button>
+            </Link>
+          </>
+        )}
       </Route>
 
       {/* Route to Log In page */}
