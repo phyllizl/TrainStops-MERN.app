@@ -9,12 +9,44 @@ import { LoggedContext } from "./App";
 import { useContext } from "react";
 
 const TrainStops = (props) => {
+<<<<<<< HEAD
   const loggedContext = useContext(LoggedContext);
+=======
+
+  const toggle = () => {
+    const burgerIcon = document.getElementById("burger");
+    const navbarMenu = document.getElementById("nav-links");
+    navbarMenu.classList.toggle("is-active");
+  }
+>>>>>>> 4bad0f7983f94d4c4443ce0e80f5b516e961b06c
 
   return (
+    <>
+    <nav class="navbar has-shadow is-warning">
+      <div class="navbar-brand">
+        <a href="/" class="navbar-item">
+          <img src="./favicon.svg"/>
+        </a>
+      </div>
+
+      {/* for mobile */}
+      <a class="navbar-burger" id="burger" onClick={toggle}>
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="navbar-menu" id="nav-links">
+         <div class="navbar-end">
+           <a href="/login" class="navbar-item">Login</a>
+           <a href="/signup" class="navbar-item">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
     <Switch>
       <Route exact path="/">
         <Main />
+<<<<<<< HEAD
         {loggedContext ? (
           <div></div>
         ) : (
@@ -27,6 +59,8 @@ const TrainStops = (props) => {
             </Link>
           </>
         )}
+=======
+>>>>>>> 4bad0f7983f94d4c4443ce0e80f5b516e961b06c
       </Route>
 
       {/* Route to Log In page */}
@@ -53,6 +87,7 @@ const TrainStops = (props) => {
         <User />
       </Route>
     </Switch>
+    </>
   );
 };
 

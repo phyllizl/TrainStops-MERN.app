@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 
 const Main = () => {
   const history = useHistory();
+  
   const [mrtStations, setMrtStations] = useState([]);
   let NS = [];
   let EW = [];
@@ -62,9 +63,11 @@ const Main = () => {
   };
 
   return (
-    <div>
+    <>
+    <div class="has-text-centered is-size-4 has-text-weight-bold">
       <label for="EW"> East West Line </label>
       <br />
+
       <select id="EW" onChange={handleClick}>
         <option value="" disabled selected>
           Choose Station
@@ -137,6 +140,7 @@ const Main = () => {
       </select>
       <br />
     </div>
+    </>
   );
 };
 

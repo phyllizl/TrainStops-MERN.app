@@ -10,6 +10,7 @@ const Location = ({ logState }) => {
   const params = useParams();
   const [locationFetch, setLocationFetch] = useState({});
 
+  //Fetch Hotspot data
   useEffect(() => {
     //console.log(params.placeid);
     const callGetDetails = async () => {
