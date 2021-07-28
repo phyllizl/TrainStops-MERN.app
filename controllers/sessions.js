@@ -1,11 +1,11 @@
 // DEPENDENCIES
 const express = require("express");
-const router = express.Router();
+const session = express.Router();
 const Users = require("../models/users.js");
 const bcrypt = require("bcrypt");
 
 //* /sessions (POST) => login
-router.post("/", (req, res) => {
+session.post("/", (req, res) => {
   Users.findOne({ username: req.body.username }, (err, foundUser) => {
     if (err) {
       console.log(err);
@@ -29,8 +29,19 @@ router.post("/", (req, res) => {
   });
 });
 
+//Find user by Id
+session.get("/:id", (req, res) => {
+  const id = req.params.id;
+  session.findById(id, (err, foundUser) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+    }
+    res.status(200).json(foundUser);
+  });
+});
+
 //Delete
-router.delete("/logout", (req, res) => {
+session.delete("/logout", (req, res) => {
   req.session.destroy((err, deletedUser) => {
     if (err) {
       res.status(400).json({ error: err.message });
@@ -40,4 +51,4 @@ router.delete("/logout", (req, res) => {
 });
 
 // EXPORT
-module.exports = router;
+module.exports = session;

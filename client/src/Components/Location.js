@@ -22,7 +22,7 @@ const Location = () => {
       }
     };
     callGetDetails();
-  }, [params.id]);
+  }, [params.placeid]);
 
   return (
     <>

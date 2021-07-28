@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, } from "react";
 import TrainStops from "./TrainStops";
+import User from "./Components/User";
 export const LoggedContext = createContext();
 console.log("LoggedContext", LoggedContext);
 
@@ -17,7 +18,8 @@ function App() {
     <LoggedContext.Provider value={logState}>
       <div className="App">
         <h1> TrainStops </h1>
-        <TrainStops />
+        <User />
+        <TrainStops setLogState={setLogState} />
       </div>
     </LoggedContext.Provider>
   );

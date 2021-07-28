@@ -1,4 +1,4 @@
-import { Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import Location from "./Components/Location";
 import LogIn from "./Components/LogIn";
 import Main from "./Components/Main";
@@ -6,11 +6,10 @@ import MrtStation from "./Components/MrtStation";
 import SignUp from "./Components/SignUp";
 //import User from "./Components/User";
 
-const TrainStops = () => {
+const TrainStops = (props) => {
   return (
     <Switch>
       <Route exact path="/">
-        
         <Main />
         <Link to="/login">
           <button>Log in</button>
@@ -22,7 +21,7 @@ const TrainStops = () => {
 
       {/* Route to Log In page */}
       <Route path="/login">
-        <LogIn />
+        <LogIn setLogState={props.setLogState} />
       </Route>
 
       <Route path="/signup">
@@ -38,7 +37,6 @@ const TrainStops = () => {
       <Route path="/location/:placeid">
         <Location />
       </Route>
-
     </Switch>
   );
 };
