@@ -29,7 +29,12 @@ const LogoutButton = (props) => {
         }
       });
   };
-  return <button onClick={loggingOut}>Log Out</button>;
+  return (
+    <a href="/" class="navbar-item" onClick={loggingOut}>
+      Log Out
+      {logout}
+    </a>
+  );
 };
 
 export default LogoutButton;
