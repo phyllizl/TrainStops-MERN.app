@@ -6,7 +6,7 @@ import MrtStation from "./Components/MrtStation";
 import SignUp from "./Components/SignUp";
 //import User from "./Components/User";
 
-const TrainStops = () => {
+const TrainStops = (props) => {
   return (
     <Switch>
       <Route exact path="/">
@@ -21,7 +21,7 @@ const TrainStops = () => {
 
       {/* Route to Log In page */}
       <Route path="/login">
-        <LogIn />
+        <LogIn setLogState={props.setLogState} />
       </Route>
 
       <Route path="/signup">

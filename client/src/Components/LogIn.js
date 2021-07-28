@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { LoggedContext } from "../App";
 //This will be the Log In page
 
-const LogIn = () => {
+const LogIn = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
   //const loggedContext = useContext(LoggedContext);
   let history = useHistory();
@@ -33,7 +33,7 @@ const LogIn = () => {
           );
         } else {
           console.log(resJson);
-          //loggedContext.setLogState(resJson);
+          props.setLogState(resJson);
           return history.push("/");
         }
       });
