@@ -7,16 +7,39 @@ import SignUp from "./Components/SignUp";
 import User from "./Components/User";
 
 const TrainStops = (props) => {
+
+  const toggle = () => {
+    const burgerIcon = document.getElementById("burger");
+    const navbarMenu = document.getElementById("nav-links");
+    navbarMenu.classList.toggle("is-active");
+  }
+
   return (
+    <>
+    <nav class="navbar has-shadow is-warning">
+      <div class="navbar-brand">
+        <a href="/" class="navbar-item">
+          <img src="./favicon.svg"/>
+        </a>
+      </div>
+
+      {/* for mobile */}
+      <a class="navbar-burger" id="burger" onClick={toggle}>
+        <span></span>
+        <span></span>
+      </a>
+
+      <div class="navbar-menu" id="nav-links">
+         <div class="navbar-end">
+           <a href="/login" class="navbar-item">Login</a>
+           <a href="/signup" class="navbar-item">Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
     <Switch>
       <Route exact path="/">
         <Main />
-        <Link to="/login">
-          <button>Log in</button>
-        </Link>
-        <Link to="/signup">
-          <button>Sign up</button>
-        </Link>
       </Route>
 
       {/* Route to Log In page */}
@@ -43,6 +66,7 @@ const TrainStops = (props) => {
         <User />
       </Route>
     </Switch>
+    </>
   );
 };
 

@@ -63,7 +63,8 @@ const Main = () => {
   };
 
   return (
-    <div>
+    <>
+    <div class="has-text-centered is-size-4 has-text-weight-bold">
       <label for="EW"> East West Line </label>
       <br />
 
@@ -139,6 +140,7 @@ const Main = () => {
       </select>
       <br />
     </div>
+    </>
   );
 };
 
