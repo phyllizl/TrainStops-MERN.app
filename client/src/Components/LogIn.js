@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-//import { LoggedContext } from "../App";
+import { LoggedContext } from "../App";
 //This will be the Log In page
 
 const LogIn = () => {
@@ -45,7 +45,12 @@ const LogIn = () => {
         <label for="username"> Username: </label>
         <input name="username" placeholder="username" id="username" /> <br />
         <label for="password"> Password: </label>
-        <input password="password" placeholder="password" id="password" />
+        <input
+          type="password"
+          password="password"
+          placeholder="password"
+          id="password"
+        />
         <br />
         <input type="submit" value="Log in" />
       </form>
