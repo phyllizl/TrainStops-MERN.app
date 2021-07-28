@@ -5,8 +5,9 @@ const Users = require("../models/users.js");
 const bcrypt = require("bcrypt");
 
 //Index route => gets all the Users
-router.get("/", (req, res) => {
-  Users.find({}, (err, foundUsers) => {
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  Users.findById(id, (err, foundUsers) => {
     if (err) {
       res.status(400).json({ error: err.message });
     }
