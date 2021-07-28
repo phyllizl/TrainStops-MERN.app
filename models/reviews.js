@@ -3,9 +3,9 @@ const Users = require("./users");
 const Schema = mongoose.Schema;
 
 const reviewsSchema = mongoose.Schema({
-  user_id: { type: Schema.Types.ObjectId, ref: "Users" },
+  user_id: { type: String },
   location_id: { type: String },
-  location_name: String,
+  location_name: { type: String },
   reviews: { type: String, required: true },
 });
 
