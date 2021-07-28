@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="65px" height="61px"
+	 viewBox="0 0 65 61" enable-background="new 0 0 65 61" xml:space="preserve">
+<title>Train</title>
+<desc>Created with Sketch.</desc>
+<path id="Shape_5_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" d="M55,55.9
+	h7.7L58,42v-8c-0.3-1.1-1-5-1-5v-2h1c1.1,0,1-0.9,1-2v-1c0-1.1,0.1-2-1-2h-7c-1.1,0-1,0.9-1,2v1c0,1.1-0.1,2,1,2h1v5h-7v-3h-4v3h-5
+	v-3h-4v3h-5v-8h0.9c1.1,0,1-0.9,1-2v-3c0-1.1,0.1-2-1-2H4c-1.1,0-1,0.9-1,2v3c0,1.1-0.1,2,1,2h1v13.9H2c-1.1,0-1,0.9-1,2v9
+	c0,1.1-0.1,2,1,2h3"/>
+<path id="Shape" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" d="M39.8,54.9h4"/>
+<path id="Shape_1_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" d="M22.103,54.9H28"/>
+<rect id="Rectangle-path" x="9" y="25" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" width="5" height="11.9">
+</rect>
+<rect id="Rectangle-path_1_" x="18" y="25" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" width="5" height="7">
+</rect>
+<path id="Shape_2_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" d="
+	M21.9,46.9h37.8"/>
+<path id="Shape_3_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" d="M52.8,11.4h-0.1
+	c0.1-0.3,0.1-0.6,0.1-0.9c0-1.6-1.1-2.9-2.6-3.2c-0.2-1.8-1.8-3.2-3.8-3.2H46C45.2,2.3,43.3,1,41.1,1c-3,0-5.1,1.8-5.1,4.7
+	c0,3.7,3,5.1,5.2,5.1c0.6,1.1,1.7,1.8,3.1,1.8c0.7,0,1.4-0.2,2-0.6c0.6,1.1,1.7,1.9,3.1,1.9c0.6,0,1.2-0.1,1.6-0.4
+	c0.1,0.9,0.9,1.6,1.8,1.6c1,0,1.9-0.8,1.9-1.8C54.6,12.2,53.8,11.4,52.8,11.4L52.8,11.4z"/>
+<path id="Shape_4_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" d="M14,42
+	h44"/>
+<circle id="Oval" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" cx="14" cy="51" r="9">
+</circle>
+<circle id="Oval_1_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" cx="34" cy="54" r="6">
+</circle>
+<circle id="Oval_2_" sketch:type="MSShapeGroup" fill="none" stroke="#6B6C6E" stroke-width="2" stroke-linejoin="round" cx="50" cy="54" r="6">
+</circle>
+</svg>

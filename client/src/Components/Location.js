@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import ReviewForm from "./ReviewForm.js";
 import Reviews from "./Reviews.js";
+require("dotenv").config();
 
 //This will be the Location (Hotspot) page that will show all the reviews for that particular Location.
 
@@ -25,11 +26,15 @@ const Location = ({ logState }) => {
     };
     callGetDetails();
   }, [params.placeid]);
-
+  console.log(locationFetch);
   return (
     <div>
       <div>
         <h1> {locationFetch?.name} </h1>
+        <img
+          src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationFetch?.photos?.[0]?.photo_reference}&key=${process.env.REACT_APP_API}`}
+          alt={`Photo of ${locationFetch?.name}`}
+        />
         <h4>{locationFetch?.formatted_address}</h4>
         <h4>Opening Hours:</h4>
         <ul>
