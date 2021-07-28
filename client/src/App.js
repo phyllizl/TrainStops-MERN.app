@@ -20,7 +20,7 @@ function App() {
           <a href={`/users/${logState._id}`}>{logState.username}</a>
         ) : null}
         <LogoutButton setLogState={setLogState} />
-        <TrainStops setLogState={setLogState} />
+        <TrainStops logState={logState} setLogState={setLogState} />
       </div>
     </LoggedContext.Provider>
   );
