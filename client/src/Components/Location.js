@@ -34,7 +34,7 @@ const Location = ({ logState }) => {
         <h1> {locationFetch?.name} </h1>
         <img
           src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationFetch?.photos?.[0]?.photo_reference}&key=${process.env.REACT_APP_API}`}
-          alt={`Photo of ${locationFetch?.name}`}
+          alt={`${locationFetch?.name}`}
         />
         <h4>{locationFetch?.formatted_address}</h4>
         <h4>Opening Hours:</h4>
