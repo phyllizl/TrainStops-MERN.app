@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, } from "react";
 import TrainStops from "./TrainStops";
 export const LoggedContext = createContext();
 console.log("LoggedContext", LoggedContext);

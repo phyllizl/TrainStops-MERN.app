@@ -33,7 +33,7 @@ const LogIn = () => {
           );
         } else {
           console.log(resJson);
-          loggedContext.setLogState(resJson);
+          
           return history.push("/");
         }
       });
