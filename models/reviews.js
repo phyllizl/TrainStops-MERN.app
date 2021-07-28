@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const reviewsSchema = mongoose.Schema({
   username: { type: Schema.Types.ObjectId, ref: "Users" },
-  location: { type: String, place_id: "" },
+  location: { type: String },
   reviews: { type: String, required: true },
 });
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import Reviews from "./Reviews.js";
 
 //This will be the Location (Hotspot) page that will show all the reviews for that particular Location.
 
@@ -30,14 +31,19 @@ const Location = () => {
 
   return (
     <div>
-      <h1> {locationFetch?.name} </h1>
-      <h4>{locationFetch?.formatted_address}</h4>
-      <h4>Opening Hours:</h4>
-      <ul>
-        {locationFetch?.opening_hours?.weekday_text.map((t, index) => (
-          <li key={index}>{t}</li>
-        ))}
-      </ul>
+      <div>
+        <h1> {locationFetch?.name} </h1>
+        <h4>{locationFetch?.formatted_address}</h4>
+        <h4>Opening Hours:</h4>
+        <ul>
+          {locationFetch?.opening_hours?.weekday_text.map((t, index) => (
+            <li key={index}>{t}</li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <Reviews placeId={params.placeid} />
+      </div>
     </div>
   );
 };

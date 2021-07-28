@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const Reviews = require("../models/reviews");
 const Users = require("../models/users");
+const Mongoose = require("mongoose");
 
 //Index Route => get all the Reviews
 router.get("/", (req, res) => {
@@ -27,15 +28,32 @@ router.get("/:id", (req, res) => {
 
 //Create Review => Only logged in Users can Create a Review
 router.post("/", (req, res) => {
-  Users.findOneAndUpdate(
-    { _id: req.session.currentUser._id },
-    //push req.body.review
-    { $push: { reviews: req.body.review } },
-    (err, foundUser) => {
-      // redirects to the room page
-      res.redirect("/room");
+  console.log("body", req.body);
+  console.log("body username", Mongoose.Types.ObjectId(req.body.username));
+
+  // create review
+  const newReview = {
+    username: Mongoose.Types.ObjectId(req.body.username),
+    location: req.body.location,
+    reviews: req.body.review,
+  };
+  Reviews.create(newReview, (err, newR) => {
+    if (err) {
+      return err;
     }
-  );
+    res.json(newR);
+    // update user with review
+    // Users.findByIdAndUpdate(
+    //   Mongoose.Types.ObjectId(req.body.username),
+    //   //push req.body.review
+    //   { $push: { reviews: newR } },
+    //   { new: true },
+    //   (err, foundUser) => {
+    //     // redirects to the room page
+    //     res.redirect("/room");
+    //   }
+    // );
+  });
 });
 
 //Delete
