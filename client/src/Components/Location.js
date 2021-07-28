@@ -11,7 +11,7 @@ const Location = () => {
     console.log(params.placeid);
     const callGetDetails = async () => {
       try {
-        const location = await fetch(`/v1/location/${params.placeid}`).then(
+        const location = await fetch(`/v1/locations/${params.placeid}`).then(
           (response) => response.json(),
           (err) => console.log(err)
         );
@@ -25,9 +25,16 @@ const Location = () => {
   }, [params.id]);
 
   return (
-    <>
+    <div>
       <h1> {locationFetch?.name} </h1>
-    </>
+      <h4>{locationFetch?.formatted_address}</h4>
+      <h4>Opening Hours:</h4>
+      <ul>
+        {locationFetch?.opening_hours?.weekday_text.map((t, index) => (
+          <li key={index}>{t}</li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
