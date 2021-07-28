@@ -39,7 +39,7 @@ const Location = () => {
         </ul>
       </div>
       <div>
-        <ReviewForm placeId={params.placeid} />
+        <ReviewForm placeId={params.placeid} placeName={locationFetch?.name} />
         <Reviews />
       </div>
     </div>

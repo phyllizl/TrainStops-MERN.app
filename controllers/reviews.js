@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 //Find Review by Id
 router.get("/:id", (req, res) => {
   const id = req.params.id;
-  Reviews.findById(id, (err, foundReview) => {
+  Reviews.find({ id }, (err, foundReview) => {
     if (err) {
       res.status(400).json({ error: err.message });
     }
@@ -33,8 +33,9 @@ router.post("/", (req, res) => {
 
   // create review
   const newReview = {
-    username: Mongoose.Types.ObjectId(req.body.username),
-    location: req.body.location,
+    user_id: Mongoose.Types.ObjectId(req.body.username),
+    location_id: req.body.location_id,
+    location_name: req.body.location_name,
     reviews: req.body.review,
   };
   Reviews.create(newReview, (err, newR) => {
