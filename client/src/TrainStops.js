@@ -4,7 +4,7 @@ import LogIn from "./Components/LogIn";
 import Main from "./Components/Main";
 import MrtStation from "./Components/MrtStation";
 import SignUp from "./Components/SignUp";
-//import User from "./Components/User";
+import User from "./Components/User";
 
 const TrainStops = (props) => {
   return (
@@ -36,6 +36,11 @@ const TrainStops = (props) => {
       {/* Route to Location(Hotspot) Page when user is logged in  */}
       <Route path="/location/:placeid">
         <Location />
+      </Route>
+
+      {/* Route to User Page when user is logged in  */}
+      <Route path="/users/:userid">
+        <User />
       </Route>
     </Switch>
   );

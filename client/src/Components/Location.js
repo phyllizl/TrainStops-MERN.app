@@ -8,14 +8,14 @@ const Location = () => {
   const [locationFetch, setLocationFetch] = useState({});
 
   useEffect(() => {
-    console.log(params.placeid);
+    //console.log(params.placeid);
     const callGetDetails = async () => {
       try {
         const location = await fetch(`/v1/locations/${params.placeid}`).then(
           (response) => response.json(),
           (err) => console.log(err)
         );
-        console.log(location);
+        //console.log(location);
         setLocationFetch(location);
       } catch (err) {
         console.log(err);
