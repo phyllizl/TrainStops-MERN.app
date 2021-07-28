@@ -5,7 +5,7 @@ import Reviews from "./Reviews.js";
 
 //This will be the Location (Hotspot) page that will show all the reviews for that particular Location.
 
-const Location = () => {
+const Location = ({ logState }) => {
   const params = useParams();
   const [locationFetch, setLocationFetch] = useState({});
 
@@ -39,7 +39,11 @@ const Location = () => {
         </ul>
       </div>
       <div>
-        <ReviewForm placeId={params.placeid} placeName={locationFetch?.name} />
+        <ReviewForm
+          placeId={params.placeid}
+          placeName={locationFetch?.name}
+          user={logState}
+        />
         <Reviews />
       </div>
     </div>

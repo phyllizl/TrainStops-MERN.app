@@ -2,16 +2,17 @@ import * as React from "react";
 import { useContext } from "react";
 import { LoggedContext } from "../App";
 
-const ReviewForm = ({ placeId, placeName }) => {
+const ReviewForm = ({ placeId, placeName, user }) => {
   const loggedContext = useContext(LoggedContext);
-  console.log(loggedContext);
+  console.log("context", loggedContext);
+  console.log("user", user);
 
   const handleReview = (e) => {
     e.preventDefault();
     console.log(e.target.elements.review.value);
     const inputReview = e.target.elements.review.value;
     const postReview = {
-      user_id: loggedContext._id,
+      user_id: user?._id,
       location_id: placeId,
       location_name: placeName,
       review: inputReview,

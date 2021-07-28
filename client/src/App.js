@@ -18,7 +18,7 @@ function App() {
         <h1> TrainStops </h1>
         {logState !== null ? logState._id : null}
         <LogoutButton setLogState={setLogState} />
-        <TrainStops setLogState={setLogState} />
+        <TrainStops logState={logState} setLogState={setLogState} />
       </div>
     </LoggedContext.Provider>
   );

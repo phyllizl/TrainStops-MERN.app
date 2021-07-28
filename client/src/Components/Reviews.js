@@ -1,28 +1,30 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Reviews = ({ placeId }) => {
   const [fetchReviews, setFetchReviews] = useState();
 
-  fetch("/v1/reviews/", {
-    method: "GET",
-    // body: JSON.stringify(postReview),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        throw new Error("Error in network");
-      }
+  useEffect(() => {
+    fetch("/v1/reviews/", {
+      method: "GET",
+      // body: JSON.stringify(postReview),
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
-    .then((resJson) => {
-      console.log(resJson);
-      setFetchReviews(resJson);
-    })
-    .catch((err) => console.error({ Error: err }));
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Error in network");
+        }
+      })
+      .then((resJson) => {
+        console.log(resJson);
+        setFetchReviews(resJson);
+      })
+      .catch((err) => console.error({ Error: err }));
+  }, []);
 
   return (
     <div>

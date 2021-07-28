@@ -35,7 +35,7 @@ const TrainStops = (props) => {
 
       {/* Route to Location(Hotspot) Page when user is logged in  */}
       <Route path="/location/:placeid">
-        <Location />
+        <Location logState={props.logState} />
       </Route>
 
       {/* Route to User Page when user is logged in  */}

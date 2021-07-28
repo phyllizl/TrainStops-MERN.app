@@ -18,7 +18,7 @@ router.get("/", (req, res) => {
 //Find Review by Id
 router.get("/:id", (req, res) => {
   const id = req.params.id;
-  Reviews.find({ id }, (err, foundReview) => {
+  Reviews.find({ location_id: id }, (err, foundReview) => {
     if (err) {
       res.status(400).json({ error: err.message });
     }
