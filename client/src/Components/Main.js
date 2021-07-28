@@ -2,6 +2,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { MenuList, MenuItem, Typography, makeStyles, Select, FormControl, InputLabel, } from "@material-ui/core/";
 
 //This will be the landing page where you get: (a) MRT lines, which are (b) drop down lists that show all the stations in that line
 
@@ -61,10 +62,30 @@ const Main = () => {
     history.push(`/mrt/${optionElementId}`);
   };
 
+  //MATERIAL UI
+  const useStyles = makeStyles((theme) => {
+    return {
+      formControl: {
+        minWidth: 160,
+    }
+  }})
+  let classes = useStyles();
+
   return (
     <div>
       <label for="EW"> East West Line </label>
       <br />
+              <FormControl className={classes.formControl}>
+                <InputLabel> Choose Station </InputLabel>
+                <Select onChange={handleClick}>
+                  {EW?.map((ele, index) => (
+                    <MenuItem key={ele?._id} id={ele?._id}>
+                  {ele?.["Station Name"]}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+
       <select id="EW" onChange={handleClick}>
         <option value="" disabled selected>
           Choose Station

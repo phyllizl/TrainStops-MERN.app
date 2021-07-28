@@ -4,6 +4,14 @@ const session = express.Router();
 const Users = require("../models/users.js");
 const bcrypt = require("bcrypt");
 
+session.get("/", (req, res) => {
+  if (req.session.currentUser) {
+    Users.findById(req.session.currentUser._id, (err, currentUser) => {
+      res.send(currentUser);
+    });
+  }
+});
+
 //* /sessions (POST) => login
 session.post("/", (req, res) => {
   Users.findOne({ username: req.body.username }, (err, foundUser) => {
