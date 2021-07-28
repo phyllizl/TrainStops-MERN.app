@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { LoggedContext } from "../App";
 //This will be the Log In page
 
-const LogIn = () => {
+const LogIn = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
-  const loggedContext = useContext(LoggedContext);
+  //const loggedContext = useContext(LoggedContext);
   let history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,7 +33,7 @@ const LogIn = () => {
           );
         } else {
           console.log(resJson);
-          loggedContext.setLogState(resJson);
+          props.setLogState(resJson);
           return history.push("/");
         }
       });
@@ -45,7 +45,12 @@ const LogIn = () => {
         <label for="username"> Username: </label>
         <input name="username" placeholder="username" id="username" /> <br />
         <label for="password"> Password: </label>
-        <input password="password" placeholder="password" id="password" />
+        <input
+          type="password"
+          password="password"
+          placeholder="password"
+          id="password"
+        />
         <br />
         <input type="submit" value="Log in" />
       </form>
