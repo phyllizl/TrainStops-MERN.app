@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import ReviewForm from "./ReviewForm.js";
 import Reviews from "./Reviews.js";
-//require("dotenv").config();
+require("dotenv").config();
 
 //This will be the Location (Hotspot) page that will show all the reviews for that particular Location.
 
