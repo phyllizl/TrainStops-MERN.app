@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const LogoutButton = () => {
+const LogoutButton = (props) => {
   const [logout, setLogout] = useState("");
   let history = useHistory();
   const loggingOut = (event) => {
     event.preventDefault();
     fetch("/v1/users/logout", {
-      method: "POST",
+      method: "delete",
       body: JSON.stringify({}),
       headers: {
         "Content-Type": "application/json",
@@ -24,6 +24,7 @@ const LogoutButton = () => {
         if (resJson.error) {
           return setLogout("Error in logging out user");
         } else {
+          props.setLogState(null);
           return history.push("/");
         }
       });

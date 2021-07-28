@@ -4,7 +4,7 @@ import LogoutButton from "./Components/LogoutButton";
 export const LoggedContext = createContext();
 
 function App() {
-  const [logState, setLogState] = useState();
+  const [logState, setLogState] = useState(null);
 
   useEffect(() => {
     fetch("/v1/users")
@@ -16,7 +16,9 @@ function App() {
     <LoggedContext.Provider value={logState}>
       <div className="App">
         <h1> TrainStops </h1>
-        <LogoutButton />
+        {logState ? logState._id : null}
+        {logState ? logState.username : null}
+        <LogoutButton setLogState={setLogState} />
         <TrainStops setLogState={setLogState} />
       </div>
     </LoggedContext.Provider>
