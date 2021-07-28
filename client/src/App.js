@@ -1,13 +1,11 @@
 import React, { createContext, useState, useEffect } from "react";
 import TrainStops from "./TrainStops";
-import User from "./Components/User";
+import LogoutButton from "./Components/LogoutButton";
 export const LoggedContext = createContext();
-console.log("LoggedContext", LoggedContext);
 
 function App() {
   const [logState, setLogState] = useState(null);
 
-  //not sure how below one works....
   useEffect(() => {
     fetch("/v1/session")
       .then((res) => res.json())
@@ -19,7 +17,7 @@ function App() {
       <div className="App">
         <h1> TrainStops </h1>
         {logState !== null ? logState._id : null}
-        <User />
+        <LogoutButton setLogState={setLogState} />
         <TrainStops setLogState={setLogState} />
       </div>
     </LoggedContext.Provider>

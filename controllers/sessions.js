@@ -28,7 +28,6 @@ session.post("/", (req, res) => {
     }
   });
 });
-
 //Delete
 session.delete("/logout", (req, res) => {
   req.session.destroy((err, deletedUser) => {
