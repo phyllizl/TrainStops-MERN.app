@@ -7,7 +7,7 @@ function App() {
   const [logState, setLogState] = useState(null);
 
   useEffect(() => {
-    fetch("/v1/users")
+    fetch("/v1/session")
       .then((res) => res.json())
       .then((data) => setLogState(data));
   }, []);
@@ -16,8 +16,7 @@ function App() {
     <LoggedContext.Provider value={logState}>
       <div className="App">
         <h1> TrainStops </h1>
-        {logState ? logState._id : null}
-        {logState ? logState.username : null}
+        {logState !== null ? logState._id : null}
         <LogoutButton setLogState={setLogState} />
         <TrainStops setLogState={setLogState} />
       </div>

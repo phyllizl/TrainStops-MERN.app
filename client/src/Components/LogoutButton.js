@@ -6,7 +6,7 @@ const LogoutButton = (props) => {
   let history = useHistory();
   const loggingOut = (event) => {
     event.preventDefault();
-    fetch("/v1/users/logout", {
+    fetch("/v1/session/logout", {
       method: "delete",
       body: JSON.stringify({}),
       headers: {

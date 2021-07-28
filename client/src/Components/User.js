@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 
 const User = () => {
   const params = useParams();
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     console.log(params.userid);
@@ -27,7 +27,7 @@ const User = () => {
   return (
     <>
       <h1> User Profile </h1>
-      {user}
+      {user.username}
     </>
   );
 };
