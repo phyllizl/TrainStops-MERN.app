@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import Reviews from "./Reviews.js";
 
 //This will be the User's Profile page when they log in. We will see all the User's reviews here with their crud functionalities.
 
@@ -28,6 +29,7 @@ const User = () => {
     <>
       <h1> User Profile </h1>
       {user.username}
+      <Reviews queryType="user" searchId={params.userid} />
     </>
   );
 };
