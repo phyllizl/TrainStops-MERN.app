@@ -33,7 +33,7 @@ app.use("/v1/reviews", reviewsController);
 const usersController = require("./controllers/users");
 app.use("/v1/users", usersController);
 const sessionsController = require("./controllers/sessions");
-app.use("/v1/users", sessionsController);
+app.use("/v1/session", sessionsController);
 
 app.use(express.static(path.join(__dirname, "./client/build")));
 

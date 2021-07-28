@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { LoggedContext } from "../App";
 //This will be the Log In page
 
 const LogIn = (props) => {
   const [errorMessage, setErrorMessage] = useState("");
-  //const loggedContext = useContext(LoggedContext);
+  const loggedContext = useContext(LoggedContext);
   let history = useHistory();
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch("/v1/users", {
+    fetch("/v1/session", {
       method: "POST",
       body: JSON.stringify({
         username: event.target.username.value,

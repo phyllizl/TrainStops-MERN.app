@@ -28,18 +28,6 @@ session.post("/", (req, res) => {
     }
   });
 });
-
-//Find user by Id
-session.get("/:id", (req, res) => {
-  const id = req.params.id;
-  session.findById(id, (err, foundUser) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-    }
-    res.status(200).json(foundUser);
-  });
-});
-
 //Delete
 session.delete("/logout", (req, res) => {
   req.session.destroy((err, deletedUser) => {

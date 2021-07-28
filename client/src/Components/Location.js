@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import ReviewForm from "./ReviewForm.js";
 import Reviews from "./Reviews.js";
 
 //This will be the Location (Hotspot) page that will show all the reviews for that particular Location.
@@ -10,14 +11,14 @@ const Location = () => {
 
   //Fetch Hotspot data
   useEffect(() => {
-    console.log(params.placeid);
+    //console.log(params.placeid);
     const callGetDetails = async () => {
       try {
         const location = await fetch(`/v1/locations/${params.placeid}`).then(
           (response) => response.json(),
           (err) => console.log(err)
         );
-        console.log(location);
+        //console.log(location);
         setLocationFetch(location);
       } catch (err) {
         console.log(err);
@@ -42,7 +43,8 @@ const Location = () => {
         </ul>
       </div>
       <div>
-        <Reviews placeId={params.placeid} />
+        <ReviewForm placeId={params.placeid} />
+        <Reviews />
       </div>
     </div>
   );
