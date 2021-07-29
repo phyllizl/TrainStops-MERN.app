@@ -35,41 +35,44 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <div className="block">
       <div className="has-text-centered is-size-4 has-text-weight-bold">
         <div className="py-2 my-2 ">
           <label>Sign Up</label>
         </div>
-        <form className="field  is-centered" onSubmit={handleSubmit}>
-          <label htmlFor="username"> Username: </label>
-          <input
-            className="input is-primary is-outlined"
-            name="username"
-            placeholder="username"
-            id="username"
-          />{" "}
-          <br />
-          <label htmlFor="password"> Password: </label>
-          <input
-            className="input is-primary is-outlined"
-            type="password"
-            password="password"
-            placeholder="password"
-            id="password"
-          />
-          <br />
-          <br />
-          <input
-            className="button is-primary is-light is-outlined"
-            type="submit"
-            value="Sign Up"
-          />
-        </form>
+        <div className="column is-4 is-offset-4">
+          <form className="field  is-centered" onSubmit={handleSubmit}>
+            <div className="block">
+              <label htmlFor="username"> Username: </label>
+              <input
+                className="input is-primary is-outlined"
+                name="username"
+                placeholder="username"
+                id="username"
+              />
+            </div>
+            <div className="block">
+              <label htmlFor="password"> Password: </label>
+              <input
+                className="input is-primary is-outlined"
+                type="password"
+                password="password"
+                placeholder="password"
+                id="password"
+              />
+            </div>
+            <input
+              className="button is-primary is-light is-outlined"
+              type="submit"
+              value="Sign Up"
+            />
+          </form>
+        </div>
         <a href="/login">Have an account? Click here to log in. </a>
         <br />
         {errorMessage}
       </div>
-    </>
+    </div>
   );
 };
 

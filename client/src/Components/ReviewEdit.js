@@ -65,18 +65,25 @@ const ReviewEdit = () => {
   };
 
   return (
-    <div>
-      <h1>Edit Review for {editReview.location_name}</h1>
-      <div>
+    <div className="card">
+      <div className="card-content">
+        <h1 className="card-header-title">
+          Edit Review for {editReview.location_name}
+        </h1>
         <form onSubmit={handleEdit}>
-          <input
-            onChange={handleInput}
-            type="textfield"
-            name="review"
-            id="review"
-            value={editReview.reviews}
-          />
-          <button>Edit Review</button>
+          <div className="block">
+            <textarea
+              className="textarea is-warning"
+              onChange={handleInput}
+              type="textfield"
+              name="review"
+              id="review"
+              value={editReview.reviews}
+            ></textarea>
+          </div>
+          <button className="button is-link is-outlined is-warning">
+            Edit Review
+          </button>
         </form>
       </div>
     </div>

@@ -39,42 +39,45 @@ const LogIn = (props) => {
       });
   };
   return (
-    <>
+    <div className="block">
       <div className="has-text-centered is-size-4 has-text-weight-bold">
         <div className="py-2 my-2 ">
           <label> Log In </label>
         </div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username"> Username: </label>
-          <input
-            className="input is-primary is-outlined"
-            name="username"
-            placeholder="username"
-            id="username"
-          />{" "}
-          <br />
-          <label htmlFor="password"> Password: </label>
-          <input
-            className="input is-primary is-outlined"
-            type="password"
-            password="password"
-            placeholder="password"
-            id="password"
-          />
-          <br />
-          <br />
-          <input
-            className="button is-primary is-light is-outlined"
-            type="submit"
-            value="Log in"
-          />
-        </form>
+        <div className="column is-4 is-offset-4">
+          <form onSubmit={handleSubmit}>
+            <div className="block">
+              <label htmlFor="username"> Username: </label>
+              <input
+                className="input is-primary is-outlined"
+                name="username"
+                placeholder="username"
+                id="username"
+              />
+            </div>
+            <div className="block">
+              <label htmlFor="password"> Password: </label>
+              <input
+                className="input is-primary is-outlined"
+                type="password"
+                password="password"
+                placeholder="password"
+                id="password"
+              />
+            </div>
+            <input
+              className="button is-primary is-light is-outlined"
+              type="submit"
+              value="Log in"
+            />
+          </form>
+        </div>
 
         <a href="/signup">Don't have an account? Sign up. </a>
         <br />
         {errorMessage}
       </div>
-    </>
+    </div>
   );
 };
 
