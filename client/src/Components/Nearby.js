@@ -23,11 +23,11 @@ const MrtStation = ({ mrtId }) => {
 
   return (
     <>
-    <section class="section">
+    <section className="section">
       {hotspotsFetch.map((loc, index) => (
-      <div class="box py-2 hero">
-        <section class="section hero py-2 has-margin-3">
-          <a href={"/location/" + loc["place_id"]} key={index} class="is-size-5 has-text-grey-dark">
+      <div className="box py-2 hero">
+        <section className="section hero py-2 has-margin-3">
+          <a href={"/location/" + loc["place_id"]} key={index} className="is-size-5 has-text-grey-dark">
               {loc["name"]}
           </a>
         </section>
