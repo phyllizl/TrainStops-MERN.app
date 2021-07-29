@@ -30,29 +30,26 @@ const User = (props) => {
 
   return (
     <>
-      <div>
-
+      <div className="block">
         {/* <section class="section"> */}
         <div class="container">
-            {loggedContext ? (
-              <>
-                <div class="title"> Hi {user.username}!</div> <br/>
-                <div class="subtitle"> Your Reviews: </div>
-         
-                  <div class="container">
-                        <Reviews
-                          queryType="users"
-                          searchId={params.userid}
-                          fetchReviews={fetchReviews}
-                          setFetchReviews={setFetchReviews}
-                        />
-                  </div>
-             
-              </>
-            ) : (
-              <a href="/login">Please log in</a>
-            )}
-          </div>
+          {loggedContext ? (
+            <>
+              <div class="title"> Hi {user.username}!</div> <br />
+              <div class="subtitle"> Your Reviews: </div>
+              <div class="container">
+                <Reviews
+                  queryType="users"
+                  searchId={params.userid}
+                  fetchReviews={fetchReviews}
+                  setFetchReviews={setFetchReviews}
+                />
+              </div>
+            </>
+          ) : (
+            <a href="/login">Please log in</a>
+          )}
+        </div>
         {/* </section> */}
       </div>
     </>

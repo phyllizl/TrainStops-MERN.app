@@ -103,7 +103,10 @@ const ReviewForm = ({
                   Post Review
                 </button>
               ) : (
-                <button className="button is-link is-outlined is-warning disabled">
+                <button
+                  className="button is-link is-outlined is-warning"
+                  disabled
+                >
                   Post Review
                 </button>
               )}
