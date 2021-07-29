@@ -40,23 +40,40 @@ const LogIn = (props) => {
   };
   return (
     <>
-      <h1> Log In </h1>
-      <form onSubmit={handleSubmit}>
-        <label for="username"> Username: </label>
-        <input name="username" placeholder="username" id="username" /> <br />
-        <label for="password"> Password: </label>
-        <input
-          type="password"
-          password="password"
-          placeholder="password"
-          id="password"
-        />
+      <div class="has-text-centered is-size-4 has-text-weight-bold">
+        <div class="py-2 my-2 ">
+          <label> Log In </label>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <label for="username"> Username: </label>
+          <input
+            class="input is-primary is-outlined"
+            name="username"
+            placeholder="username"
+            id="username"
+          />{" "}
+          <br />
+          <label for="password"> Password: </label>
+          <input
+            class="input is-primary is-outlined"
+            type="password"
+            password="password"
+            placeholder="password"
+            id="password"
+          />
+          <br />
+          <br />
+          <input
+            class="button is-primary is-light is-outlined"
+            type="submit"
+            value="Log in"
+          />
+        </form>
+
+        <a href="/signup">Don't have an account? Sign up. </a>
         <br />
-        <input type="submit" value="Log in" />
-      </form>
-      <a href="/signup">Don't have an account? Sign up. </a>
-      <br />
-      {errorMessage}
+        {errorMessage}
+      </div>
     </>
   );
 };

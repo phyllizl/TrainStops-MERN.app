@@ -39,7 +39,7 @@ const TrainStops = (props) => {
               <>
                 {props.logState !== null ? (
                   <a class="navbar-item" href={`/users/${props.logState._id}`}>
-                    {props.logState.username}
+                    Welcome, {props.logState.username}!
                   </a>
                 ) : null}
                 <LogoutButton setLogState={props.setLogState} />
