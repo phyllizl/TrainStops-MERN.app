@@ -7,6 +7,7 @@ import Reviews from "./Reviews.js";
 const User = () => {
   const params = useParams();
   const [user, setUser] = useState({});
+  const [fetchReviews, setFetchReviews] = useState([]);
 
   useEffect(() => {
     console.log(params.userid);
@@ -29,7 +30,12 @@ const User = () => {
     <>
       <h1> User Profile </h1>
       {user.username}
-      <Reviews queryType="users" searchId={params.userid} />
+      <Reviews
+        queryType="users"
+        searchId={params.userid}
+        fetchReviews={fetchReviews}
+        setFetchReviews={setFetchReviews}
+      />
     </>
   );
 };
