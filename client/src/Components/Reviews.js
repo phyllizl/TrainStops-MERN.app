@@ -77,10 +77,15 @@ const Reviews = ({
                 {queryType === "users" ? (
                   <>
                     <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
-                      Edit
+                      <button className="button is-link is-outlined">
+                        Edit
+                      </button>
                     </a>
                     <a>
-                      <button onClick={() => handleDelete(rev._id)}>
+                      <button
+                        className="button is-danger"
+                        onClick={() => handleDelete(rev._id)}
+                      >
                         Delete
                       </button>
                     </a>

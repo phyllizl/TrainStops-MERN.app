@@ -28,14 +28,24 @@ const User = () => {
 
   return (
     <>
-      <h1> User Profile </h1>
-      {user.username}
-      <Reviews
-        queryType="users"
-        searchId={params.userid}
-        fetchReviews={fetchReviews}
-        setFetchReviews={setFetchReviews}
-      />
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title"> User Profile </p>
+        </header>
+
+        <div class="card-content">
+          <p class="title"> Hi {user.username}!</p>
+          <p class="card-header-title"> Reviews </p>
+          <p class="subtitle">
+            <Reviews
+              queryType="users"
+              searchId={params.userid}
+              fetchReviews={fetchReviews}
+              setFetchReviews={setFetchReviews}
+            />
+          </p>
+        </div>
+      </div>
     </>
   );
 };
