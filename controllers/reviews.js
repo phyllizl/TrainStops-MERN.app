@@ -58,6 +58,7 @@ router.post("/", (req, res) => {
   const newReview = {
     user_id: Mongoose.Types.ObjectId(req.body.user_id),
     location_id: req.body.location_id,
+    username: req.body.username,
     location_name: req.body.location_name,
     reviews: req.body.review,
   };

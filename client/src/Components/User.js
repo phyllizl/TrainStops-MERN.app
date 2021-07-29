@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Reviews from "./Reviews.js";
-
+import { LoggedContext } from "../App";
+import { useContext } from "react";
 //This will be the User's Profile page when they log in. We will see all the User's reviews here with their crud functionalities.
 
-const User = () => {
+const User = (props) => {
   const params = useParams();
   const [user, setUser] = useState({});
   const [fetchReviews, setFetchReviews] = useState([]);
+  const loggedContext = useContext(LoggedContext);
 
   useEffect(() => {
     console.log(params.userid);
@@ -34,16 +36,22 @@ const User = () => {
         </header>
 
         <div class="card-content">
-          <p class="title"> Hi {user.username}!</p>
-          <p class="card-header-title"> Reviews </p>
-          <p class="subtitle">
-            <Reviews
-              queryType="users"
-              searchId={params.userid}
-              fetchReviews={fetchReviews}
-              setFetchReviews={setFetchReviews}
-            />
-          </p>
+          {loggedContext ? (
+            <>
+              <p class="title"> Hi {user.username}!</p>
+              <p class="card-header-title"> Reviews </p>
+              <p class="subtitle">
+                <Reviews
+                  queryType="users"
+                  searchId={params.userid}
+                  fetchReviews={fetchReviews}
+                  setFetchReviews={setFetchReviews}
+                />
+              </p>
+            </>
+          ) : (
+            <a href="/login">Please log in</a>
+          )}
         </div>
       </div>
     </>

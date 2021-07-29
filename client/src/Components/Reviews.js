@@ -1,14 +1,8 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const Reviews = ({
-  searchId,
-  queryType,
-  setValidReview,
-  fetchReviews,
-  setFetchReviews,
-}) => {
+const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
   // const [fetchReviews, setFetchReviews] = useState();
   const history = useHistory();
 
@@ -29,7 +23,6 @@ const Reviews = ({
       .then((resJson) => {
         console.log(resJson);
         setFetchReviews(resJson);
-        // setValidReview(resJson);
       })
       .catch((err) => console.error({ Error: err }));
   }, [searchId, queryType]);
@@ -64,26 +57,31 @@ const Reviews = ({
       <ul>
         {fetchReviews?.map((rev, index) => (
           <>
+            <br />
             <li key={index}>
               <div>
                 {queryType === "users" ? (
-                  <a href={`/location/${rev.location_id}`}>
-                    {rev.location_name}
-                  </a>
-                ) : null}{" "}
-                {rev.reviews}
+                  <>
+                    <a href={`/location/${rev.location_id}`}>
+                      {rev.location_name}
+                    </a>{" "}
+                    {rev.reviews}
+                  </>
+                ) : (
+                  `${rev.reviews} - ${rev.username}`
+                )}
               </div>
               <div>
                 {queryType === "users" ? (
                   <>
                     <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
-                      <button className="button is-link is-outlined">
+                      <button className="button is-link is-outlined is-warning">
                         Edit
                       </button>
                     </a>
                     <a>
                       <button
-                        className="button is-danger"
+                        className="button is-outlined is-danger"
                         onClick={() => handleDelete(rev._id)}
                       >
                         Delete
