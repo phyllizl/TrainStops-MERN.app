@@ -27,7 +27,7 @@ const SignUp = () => {
       .then((resJson) => {
         //console.log(resJson.error);
         if (resJson.error) {
-          return setErrorMessage("Error in creating user");
+          return setErrorMessage("Username is already in used.");
         } else {
           return history.push("/");
         }
@@ -50,6 +50,8 @@ const SignUp = () => {
         <br />
         <input type="submit" value="Sign Up" />
       </form>
+      <a href="/login">Have an account? Click here to log in. </a>
+      <br />
       {errorMessage}
     </>
   );

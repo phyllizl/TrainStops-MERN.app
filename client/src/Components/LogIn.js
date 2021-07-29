@@ -54,7 +54,8 @@ const LogIn = (props) => {
         <br />
         <input type="submit" value="Log in" />
       </form>
-      <a href="/">Back to main</a>
+      <a href="/signup">Don't have an account? Sign up. </a>
+      <br />
       {errorMessage}
     </>
   );
