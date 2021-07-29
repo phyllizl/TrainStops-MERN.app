@@ -64,7 +64,7 @@ const Location = ({ logState }) => {
             <div className="title">Reviews</div>
           </div>
         )}
-        <div className="column is-two-third">
+        <div>
         <Reviews
           queryType="location"
           searchId={params.placeid}
