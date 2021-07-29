@@ -11,7 +11,6 @@ const Location = ({ logState }) => {
   const params = useParams();
   const [locationFetch, setLocationFetch] = useState({});
   const [fetchReviews, setFetchReviews] = useState([]);
-  // const [validReview, setValidReview] = useState([]);
   const loggedContext = useContext(LoggedContext);
 
   //Fetch Hotspot data
@@ -32,6 +31,7 @@ const Location = ({ logState }) => {
     callGetDetails();
   }, [params.placeid]);
   console.log("locationfetch", locationFetch);
+
   return (
     <div className="box">
       <div>
@@ -60,14 +60,18 @@ const Location = ({ logState }) => {
             setFetchReviews={setFetchReviews}
           />
         ) : (
-          <h1>Reviews</h1>
+          <div>
+            <div className="title">Reviews</div>
+          </div>
         )}
+        <div className="column is-two-third">
         <Reviews
           queryType="location"
           searchId={params.placeid}
           fetchReviews={fetchReviews}
           setFetchReviews={setFetchReviews}
         />
+        </div>
       </div>
     </div>
   );

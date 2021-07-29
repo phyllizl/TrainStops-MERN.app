@@ -6,16 +6,13 @@ import { LoggedContext } from "../App";
 const ReviewForm = ({
   placeId,
   placeName,
-  validReview,
   fetchReviews,
   setFetchReviews,
   queryType,
 }) => {
   const [canReview, setCanReview] = useState(true);
-  console.log(canReview);
   const loggedContext = useContext(LoggedContext);
   console.log("context", loggedContext);
-  console.log("context id", loggedContext?._id);
   const history = useHistory();
   console.log("fetchreviews", fetchReviews);
 
@@ -35,7 +32,7 @@ const ReviewForm = ({
       })
       .then((resJson) => {
         console.log(resJson);
-        const hasUserMadeReview = resJson.filter((u) => {
+        resJson.filter((u) => {
           if (u.user_id === loggedContext?._id) {
             setCanReview(false);
             return true;
@@ -44,8 +41,6 @@ const ReviewForm = ({
             return false;
           }
         });
-        console.log(hasUserMadeReview);
-        console.log(canReview);
       })
       .catch((err) => console.error({ Error: err }));
   }, [loggedContext, queryType, placeId, fetchReviews]);
@@ -57,6 +52,7 @@ const ReviewForm = ({
     const postReview = {
       user_id: loggedContext?._id,
       location_id: placeId,
+      username: loggedContext?.username,
       location_name: placeName,
       review: inputReview,
     };
@@ -85,23 +81,25 @@ const ReviewForm = ({
   };
 
   return (
-    <div>
-      <h1>Reviews</h1>
-      <div>
-        <form onSubmit={handleReview}>
-          <label htmlFor="review">How did you like this place?</label>
-          <input
-            type="textfield"
-            name="review"
-            id="review"
-            placeholder="Type something"
-          />
-          {canReview ? (
-            <button>Post Review</button>
-          ) : (
-            <button disabled>Post Review</button>
-          )}
-        </form>
+    <div className="card">
+      <div className="card-content">
+        <div className="content">
+          <h1>Reviews</h1>
+            <form onSubmit={handleReview}>
+              <label htmlFor="review">How did you like this place?</label> <br/>
+              <input
+                type="textfield"
+                name="review"
+                id="review"
+                placeholder="Type something"
+              />
+              {canReview ? (
+                <button class="card-footer-item ">Post Review </button>
+              ) : (
+                <button disabled>Post Review</button>
+              )}
+            </form>
+        </div>
       </div>
     </div>
   );
