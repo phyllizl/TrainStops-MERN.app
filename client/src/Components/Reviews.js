@@ -54,10 +54,11 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
 
   return (
     <div>
+      <br />
+      {fetchReviews.length === 0 ? null : <h1>Reviews</h1>}
       <ul>
         {fetchReviews?.map((rev, index) => (
           <>
-            <br />
             <li key={index}>
               <div>
                 {queryType === "users" ? (

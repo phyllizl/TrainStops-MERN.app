@@ -57,8 +57,9 @@ const Location = ({ logState }) => {
             setFetchReviews={setFetchReviews}
           />
         ) : (
-          <h1>Reviews</h1>
+          <></>
         )}
+
         <Reviews
           queryType="location"
           searchId={params.placeid}

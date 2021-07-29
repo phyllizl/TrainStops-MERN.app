@@ -82,7 +82,6 @@ const ReviewForm = ({
 
   return (
     <div>
-      <h1>Reviews</h1>
       <div>
         <form onSubmit={handleReview}>
           <label htmlFor="review">How did you like this place?</label>
