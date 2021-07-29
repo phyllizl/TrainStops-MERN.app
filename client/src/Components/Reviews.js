@@ -26,8 +26,8 @@ const Reviews = ({ searchId, queryType }) => {
       .catch((err) => console.error({ Error: err }));
   }, [searchId, queryType]);
 
-  const handleClick = (e) => {
-    console.log(e.target.elements);
+  const handleClick = (reviewid) => {
+    console.log(reviewid);
   };
 
   return (
@@ -36,12 +36,21 @@ const Reviews = ({ searchId, queryType }) => {
         {fetchReviews?.map((rev, index) => (
           <>
             <li key={index}>
-              {queryType === "users" ? `[${rev.location_name}]` : null}{" "}
-              {rev.reviews}
+              <div>
+                {queryType === "users" ? `[${rev.location_name}]` : null}{" "}
+                {rev.reviews}
+              </div>
+              <div>
+                {queryType === "users" ? (
+                  <>
+                    <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
+                      Edit
+                    </a>
+                    <button onClick={() => handleClick(rev._id)}>Edit</button>
+                  </>
+                ) : null}
+              </div>
             </li>
-            {queryType === "users" ? (
-              <button onClick={handleClick}>Edit</button>
-            ) : null}
           </>
         ))}
       </ul>

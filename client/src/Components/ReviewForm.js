@@ -34,7 +34,6 @@ const ReviewForm = ({ placeId, placeName, user, queryType }) => {
       })
       .then((resJson) => {
         console.log(resJson);
-        // props.addHoliday(resJson);
       })
       .catch((err) => console.error({ Error: err }));
   };
