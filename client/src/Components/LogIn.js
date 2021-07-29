@@ -45,7 +45,7 @@ const LogIn = (props) => {
           <label> Log In </label>
         </div>
         <form onSubmit={handleSubmit}>
-          <label for="username"> Username: </label>
+          <label htmlFor="username"> Username: </label>
           <input
             className="input is-primary is-outlined"
             name="username"
@@ -53,7 +53,7 @@ const LogIn = (props) => {
             id="username"
           />{" "}
           <br />
-          <label for="password"> Password: </label>
+          <label htmlFor="password"> Password: </label>
           <input
             className="input is-primary is-outlined"
             type="password"

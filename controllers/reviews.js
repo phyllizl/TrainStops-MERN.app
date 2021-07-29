@@ -16,6 +16,18 @@ router.get("/", (req, res) => {
 });
 
 //Find Review by Id
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  Reviews.findById(id, (err, foundReview) => {
+    console.log(foundReview);
+    if (err) {
+      res.status(400).json({ error: err.message });
+    }
+    res.status(200).json(foundReview);
+  });
+});
+
 router.get("/location/:id", (req, res) => {
   const id = req.params.id;
   console.log(id);
@@ -57,19 +69,9 @@ router.post("/", (req, res) => {
   });
 });
 
-//Delete
-router.delete("/:id", (req, res) => {
-  Reviews.findByIdAndRemove(req.params.id, (err, deletedReview) => {
-    if (err) {
-      res.status(400).json({ error: err.message });
-    }
-    res.status(200).json(deletedReview);
-  });
-});
-
 //Update
 router.put("/:id", (req, res) => {
-  Review.findByIdAndUpdate(
+  Reviews.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true },
@@ -80,6 +82,16 @@ router.put("/:id", (req, res) => {
       res.status(200).json(updatedReview);
     }
   );
+});
+
+//Delete
+router.delete("/:id", (req, res) => {
+  Reviews.findByIdAndRemove(req.params.id, (err, deletedReview) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+    }
+    res.status(200).json(deletedReview);
+  });
 });
 
 // EXPORT
