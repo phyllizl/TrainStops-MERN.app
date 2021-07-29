@@ -7,12 +7,12 @@ const { Client } = require("@googlemaps/google-maps-services-js");
 
 //Index route => gets all the MRT stations
 router.get("/", (req, res) => {
-    MRT.find({}, (err, foundMRTS) => {
-      if (err) {
-        res.status(400).json({ error: err.message });
-      }
-      res.status(200).json(foundMRTS);
-    });
+  MRT.find({}, (err, foundMRTS) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+    }
+    res.status(200).json(foundMRTS);
+  });
 });
 
 //Seed Route

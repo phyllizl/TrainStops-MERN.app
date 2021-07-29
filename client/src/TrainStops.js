@@ -36,9 +36,12 @@ const TrainStops = (props) => {
           <div className="navbar-end">
             {loggedContext ? (
               <>
-                {props.logState !== null ? (
-                  <a className="navbar-item" href={`/users/${props.logState._id}`}>
-                    Welcome, {props.logState.username}!
+                {loggedContext !== null ? (
+                  <a
+                    className="navbar-item"
+                    href={`/users/${props.logState._id}`}
+                  >
+                    Welcome, {loggedContext.username}!
                   </a>
                 ) : null}
                 <LogoutButton setLogState={props.setLogState} />

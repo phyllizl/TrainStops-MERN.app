@@ -59,7 +59,7 @@ const Location = () => {
           />
         ) : (
           <div className="block">
-            <div className="title">Reviews</div>
+            <div className="title">Log in to review!</div>
           </div>
         )}
         <div className="block">
