@@ -53,6 +53,7 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
   };
 
   return (
+<<<<<<< HEAD
     <div>
       <br />
       {fetchReviews.length === 0 ? null : <h1>Reviews</h1>}
@@ -61,8 +62,20 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
           <>
             <li key={index}>
               <div>
+=======
+    <div className="container">
+    <div className="columns is-multiline">
+      
+        {fetchReviews?.map((rev, index) => (
+          <>
+            <br />
+            <div className="column is-4 " key={index}>
+              <div className="card">
+              <div className="card-content">
+>>>>>>> phylliz
                 {queryType === "users" ? (
                   <>
+                  
                     <a href={`/location/${rev.location_id}`}>
                       {rev.location_name}
                     </a>{" "}
@@ -72,7 +85,8 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
                   `${rev.reviews} - ${rev.username}`
                 )}
               </div>
-              <div>
+
+              <div className="card-footer">
                 {queryType === "users" ? (
                   <>
                     <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
@@ -91,10 +105,12 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
                   </>
                 ) : null}
               </div>
-            </li>
+              </div>
+            </div>
           </>
         ))}
-      </ul>
+      
+    </div>
     </div>
   );
 };
