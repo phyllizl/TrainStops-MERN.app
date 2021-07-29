@@ -90,32 +90,32 @@ const Main = () => {
 
   return (
     <>
-      <div class="has-text-centered is-size-4 has-text-weight-bold">
+      <div className="has-text-centered is-size-4 has-text-weight-bold">
         {/* East West Line */}
-        <div class="py-2 my-2 ">
+        <div className="py-2 my-2 ">
           <label for="EW"> East West Line </label>
           <br />
 
-          <div class="dropdown" id="EW" onClick={toggle}>
-            <div class="dropdown-trigger">
+          <div className="dropdown" id="EW" onClick={toggle}>
+            <div className="dropdown-trigger">
               <button
-                class="button"
+                className="button"
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
               >
                 <span>Choose a Station</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                <span className="icon is-small">
+                  <i className="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
               </button>
             </div>
 
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
+            <div className="dropdown-menu" id="dropdown-menu" role="menu">
+              <div className="dropdown-content">
                 {EW?.map((ele) => (
                   <a
                     href={`/mrt/${ele?._id}`}
-                    class="dropdown-item EWcolor"
+                    className="dropdown-item EWcolor"
                     key={ele?._id}
                     id={ele?._id}
                   >
@@ -142,29 +142,29 @@ const Main = () => {
       <br /> */}
 
         {/* North South Line */}
-        <div class="py-2 my-2 ">
+        <div className="py-2 my-2 ">
           <label for="NS"> North South Line </label>
           <br />
-          <div class="dropdown" id="NS" onClick={NorthSouth}>
-            <div class="dropdown-trigger">
+          <div className="dropdown" id="NS" onClick={NorthSouth}>
+            <div className="dropdown-trigger">
               <button
-                class="button"
+                className="button"
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
               >
                 <span>Choose a Station</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                <span className="icon is-small">
+                  <i className="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
               </button>
             </div>
 
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
+            <div className="dropdown-menu" id="dropdown-menu" role="menu">
+              <div className="dropdown-content">
                 {NS?.map((ele) => (
                   <a
                     href={`/mrt/${ele?._id}`}
-                    class="dropdown-item NScolor"
+                    className="dropdown-item NScolor"
                     key={ele?._id}
                     id={ele?._id}
                   >
@@ -178,29 +178,29 @@ const Main = () => {
         </div>
 
         {/* DownTown Line */}
-        <div class="py-2 my-2 ">
+        <div className="py-2 my-2 ">
           <label for="DT"> Downtown Line </label>
           <br />
-          <div class="dropdown" id="DT" onClick={DownTown}>
-            <div class="dropdown-trigger">
+          <div className="dropdown" id="DT" onClick={DownTown}>
+            <div className="dropdown-trigger">
               <button
-                class="button"
+                className="button"
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
               >
                 <span>Choose a Station</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                <span className="icon is-small">
+                  <i className="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
               </button>
             </div>
 
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
+            <div className="dropdown-menu" id="dropdown-menu" role="menu">
+              <div className="dropdown-content">
                 {DT?.map((ele) => (
                   <a
                     href={`/mrt/${ele?._id}`}
-                    class="dropdown-item DTcolor"
+                    className="dropdown-item DTcolor"
                     key={ele?._id}
                     id={ele?._id}
                   >
@@ -214,29 +214,29 @@ const Main = () => {
         </div>
 
         {/* Circle Line */}
-        <div class="py-2 my-2 ">
+        <div className="py-2 my-2 ">
           <label for="CC"> Circle Line </label>
           <br />
-          <div class="dropdown" id="CC" onClick={Circle}>
-            <div class="dropdown-trigger">
+          <div className="dropdown" id="CC" onClick={Circle}>
+            <div className="dropdown-trigger">
               <button
-                class="button"
+                className="button"
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
               >
                 <span>Choose a Station</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                <span className="icon is-small">
+                  <i className="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
               </button>
             </div>
 
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
+            <div className="dropdown-menu" id="dropdown-menu" role="menu">
+              <div className="dropdown-content">
                 {CC?.map((ele) => (
                   <a
                     href={`/mrt/${ele?._id}`}
-                    class="dropdown-item CCcolor"
+                    className="dropdown-item CCcolor"
                     key={ele?._id}
                     id={ele?._id}
                   >
@@ -250,29 +250,29 @@ const Main = () => {
         </div>
 
         {/* North East Line */}
-        <div class="py-2 my-2 ">
+        <div className="py-2 my-2 ">
           <label for="NE"> North East Line </label>
           <br />
-          <div class="dropdown" id="NE" onClick={NorthEast}>
-            <div class="dropdown-trigger">
+          <div className="dropdown" id="NE" onClick={NorthEast}>
+            <div className="dropdown-trigger">
               <button
-                class="button"
+                className="button"
                 aria-haspopup="true"
                 aria-controls="dropdown-menu"
               >
                 <span>Choose a Station</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
+                <span className="icon is-small">
+                  <i className="fas fa-angle-down" aria-hidden="true"></i>
                 </span>
               </button>
             </div>
 
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
+            <div className="dropdown-menu" id="dropdown-menu" role="menu">
+              <div className="dropdown-content">
                 {NE?.map((ele) => (
                   <a
                     href={`/mrt/${ele?._id}`}
-                    class="dropdown-item NEcolor"
+                    className="dropdown-item NEcolor"
                     key={ele?._id}
                     id={ele?._id}
                   >

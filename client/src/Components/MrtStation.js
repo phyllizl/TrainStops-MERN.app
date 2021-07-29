@@ -26,11 +26,11 @@ const MrtStation = () => {
   return (
     <>
       <div>
-        <div class="box pt-6 pl-6">
-          <div class="subtitle">
+        <div className="box pt-6 pl-6">
+          <div className="subtitle">
             {currentMrt?.["Station"]} 
           </div>
-          <div class="title">
+          <div className="title">
             {currentMrt?.["Station Name"]}
           </div>
             <Nearby mrtId={params.id} />
