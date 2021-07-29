@@ -52,6 +52,7 @@ const ReviewForm = ({
     const postReview = {
       user_id: loggedContext?._id,
       location_id: placeId,
+      username: loggedContext?.username,
       location_name: placeName,
       review: inputReview,
     };

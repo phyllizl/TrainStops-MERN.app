@@ -29,7 +29,6 @@ const ReviewEdit = () => {
       .then((resJson) => {
         console.log(resJson);
         setEditReview(resJson);
-        // return history.push();
       })
       .catch((err) => console.error({ Error: err }));
   }, [params.reviewid]);

@@ -2,12 +2,7 @@ import * as React from "react";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const Reviews = ({
-  searchId,
-  queryType,
-  fetchReviews,
-  setFetchReviews,
-}) => {
+const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
   // const [fetchReviews, setFetchReviews] = useState();
   const history = useHistory();
 
@@ -65,11 +60,15 @@ const Reviews = ({
             <li key={index}>
               <div>
                 {queryType === "users" ? (
-                  <a href={`/location/${rev.location_id}`}>
-                    {rev.location_name}
-                  </a>
-                ) : null}{" "}
-                {rev.reviews}
+                  <>
+                    <a href={`/location/${rev.location_id}`}>
+                      {rev.location_name}
+                    </a>{" "}
+                    {rev.reviews}
+                  </>
+                ) : (
+                  `${rev.reviews} - ${rev.username}`
+                )}
               </div>
               <div>
                 {queryType === "users" ? (
