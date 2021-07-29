@@ -15,16 +15,10 @@ function App() {
     <LoggedContext.Provider value={logState}>
       <div className="App">
         <TrainStops logState={logState} setLogState={setLogState} />
-        <footer class="footer">
-          <div class="content has-text-centered">
-            <p>
-              <img
-                src="https://i.imgur.com/qnXvFki.png"
-                alt="power by google"
-              />
-            </p>
-          </div>
-        </footer>
+
+        <div className="content has-text-centered bottom">
+          <img src="https://i.imgur.com/qnXvFki.png" alt="power by google" />
+        </div>
       </div>
     </LoggedContext.Provider>
   );

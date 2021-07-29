@@ -31,3 +31,9 @@ code {
 .NEcolor {
   color: darkviolet;
 }
+
+.bottom {
+  height: 100%;
+  position: relative;
+  bottom: 0px;
+}
