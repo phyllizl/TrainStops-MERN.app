@@ -11,7 +11,6 @@ const Location = ({ logState }) => {
   const params = useParams();
   const [locationFetch, setLocationFetch] = useState({});
   const [fetchReviews, setFetchReviews] = useState([]);
-  // const [validReview, setValidReview] = useState([]);
   const loggedContext = useContext(LoggedContext);
 
   //Fetch Hotspot data
