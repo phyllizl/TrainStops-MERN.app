@@ -1,11 +1,10 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 const Reviews = ({
   searchId,
   queryType,
-  setValidReview,
   fetchReviews,
   setFetchReviews,
 }) => {
@@ -29,7 +28,6 @@ const Reviews = ({
       .then((resJson) => {
         console.log(resJson);
         setFetchReviews(resJson);
-        // setValidReview(resJson);
       })
       .catch((err) => console.error({ Error: err }));
   }, [searchId, queryType]);

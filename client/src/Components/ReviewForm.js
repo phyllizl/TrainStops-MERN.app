@@ -6,16 +6,13 @@ import { LoggedContext } from "../App";
 const ReviewForm = ({
   placeId,
   placeName,
-  validReview,
   fetchReviews,
   setFetchReviews,
   queryType,
 }) => {
   const [canReview, setCanReview] = useState(true);
-  console.log(canReview);
   const loggedContext = useContext(LoggedContext);
   console.log("context", loggedContext);
-  console.log("context id", loggedContext?._id);
   const history = useHistory();
   console.log("fetchreviews", fetchReviews);
 
@@ -35,7 +32,7 @@ const ReviewForm = ({
       })
       .then((resJson) => {
         console.log(resJson);
-        const hasUserMadeReview = resJson.filter((u) => {
+        resJson.filter((u) => {
           if (u.user_id === loggedContext?._id) {
             setCanReview(false);
             return true;
@@ -44,8 +41,6 @@ const ReviewForm = ({
             return false;
           }
         });
-        console.log(hasUserMadeReview);
-        console.log(canReview);
       })
       .catch((err) => console.error({ Error: err }));
   }, [loggedContext, queryType, placeId, fetchReviews]);

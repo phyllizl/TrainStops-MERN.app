@@ -4,12 +4,12 @@ import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
 import { LoggedContext } from "../App";
 
-const ReviewEdit = ({ placeId, placeName, user, queryType }) => {
+const ReviewEdit = () => {
   const [editReview, setEditReview] = useState({});
   const loggedContext = useContext(LoggedContext);
   console.log("context", loggedContext);
   const params = useParams();
-  console.log(params.reviewid);
+  // console.log(params.reviewid);
   const history = useHistory();
 
   useEffect(() => {
@@ -29,10 +29,16 @@ const ReviewEdit = ({ placeId, placeName, user, queryType }) => {
       .then((resJson) => {
         console.log(resJson);
         setEditReview(resJson);
-        return history.push();
+        // return history.push();
       })
       .catch((err) => console.error({ Error: err }));
   }, [params.reviewid]);
+
+  const handleInput = (e) => {
+    const origReview = e.target.value;
+    console.log(origReview);
+    setEditReview({ ...editReview, reviews: e.target.value });
+  };
 
   const handleEdit = (e) => {
     e.preventDefault();
@@ -65,10 +71,11 @@ const ReviewEdit = ({ placeId, placeName, user, queryType }) => {
       <div>
         <form onSubmit={handleEdit}>
           <input
+            onChange={handleInput}
             type="textfield"
             name="review"
             id="review"
-            // value={editReview.reviews}
+            value={editReview.reviews}
           />
           <button>Edit Review</button>
         </form>
