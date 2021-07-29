@@ -2,8 +2,14 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
-const Reviews = ({ searchId, queryType }) => {
-  const [fetchReviews, setFetchReviews] = useState();
+const Reviews = ({
+  searchId,
+  queryType,
+  setValidReview,
+  fetchReviews,
+  setFetchReviews,
+}) => {
+  // const [fetchReviews, setFetchReviews] = useState();
   const history = useHistory();
 
   useEffect(() => {
@@ -23,6 +29,7 @@ const Reviews = ({ searchId, queryType }) => {
       .then((resJson) => {
         console.log(resJson);
         setFetchReviews(resJson);
+        // setValidReview(resJson);
       })
       .catch((err) => console.error({ Error: err }));
   }, [searchId, queryType]);
@@ -59,7 +66,11 @@ const Reviews = ({ searchId, queryType }) => {
           <>
             <li key={index}>
               <div>
-                {queryType === "users" ? `[${rev.location_name}]` : null}{" "}
+                {queryType === "users" ? (
+                  <a href={`/location/${rev.location_id}`}>
+                    {rev.location_name}
+                  </a>
+                ) : null}{" "}
                 {rev.reviews}
               </div>
               <div>

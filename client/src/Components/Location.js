@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
 import ReviewForm from "./ReviewForm.js";
 import Reviews from "./Reviews.js";
+import { LoggedContext } from "../App";
 require("dotenv").config();
 
 //This will be the Location (Hotspot) page that will show all the reviews for that particular Location.
@@ -9,6 +10,9 @@ require("dotenv").config();
 const Location = ({ logState }) => {
   const params = useParams();
   const [locationFetch, setLocationFetch] = useState({});
+  const [fetchReviews, setFetchReviews] = useState([]);
+  // const [validReview, setValidReview] = useState([]);
+  const loggedContext = useContext(LoggedContext);
 
   //Fetch Hotspot data
   useEffect(() => {
@@ -32,10 +36,10 @@ const Location = ({ logState }) => {
     <div>
       <div>
         <h1> {locationFetch?.name} </h1>
-        <img
+        {/* <img
           src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationFetch?.photos?.[0]?.photo_reference}&key=${process.env.REACT_APP_API}`}
           alt={`${locationFetch?.name}`}
-        />
+        /> */}
         <h4>{locationFetch?.formatted_address}</h4>
         <h4>Opening Hours:</h4>
         <ul>
@@ -45,12 +49,23 @@ const Location = ({ logState }) => {
         </ul>
       </div>
       <div>
-        <ReviewForm
+        {loggedContext ? (
+          <ReviewForm
+            queryType="location"
+            placeId={params.placeid}
+            placeName={locationFetch?.name}
+            fetchReviews={fetchReviews}
+            setFetchReviews={setFetchReviews}
+          />
+        ) : (
+          <h1>Reviews</h1>
+        )}
+        <Reviews
           queryType="location"
-          placeId={params.placeid}
-          placeName={locationFetch?.name}
+          searchId={params.placeid}
+          fetchReviews={fetchReviews}
+          setFetchReviews={setFetchReviews}
         />
-        <Reviews queryType="location" searchId={params.placeid} />
       </div>
     </div>
   );
