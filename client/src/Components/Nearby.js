@@ -22,13 +22,28 @@ const MrtStation = ({ mrtId }) => {
   }, [mrtId]);
 
   return (
-      <div>
+    <>
+    <section class="section">
+      {hotspotsFetch.map((loc, index) => (
+      <div class="box py-2 hero">
+        <section class="section hero py-2 has-margin-3">
+          <a href={"/location/" + loc["place_id"]} key={index} class="is-size-5 has-text-grey-dark">
+              {loc["name"]}
+          </a>
+        </section>
+      </div>
+      ))}
+    </section>
+
+    {/* CAN DELETE */}
+      {/* <div>
         {hotspotsFetch.map((loc, index) => (
           <a href={"/location/" + loc["place_id"]} key={index}>
             <p>{loc["name"]}</p>
           </a>
         ))}
-      </div>
+      </div> */}
+    </>
   );
 };
 
