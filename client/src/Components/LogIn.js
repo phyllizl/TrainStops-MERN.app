@@ -40,22 +40,22 @@ const LogIn = (props) => {
   };
   return (
     <>
-      <div class="has-text-centered is-size-4 has-text-weight-bold">
-        <div class="py-2 my-2 ">
+      <div className="has-text-centered is-size-4 has-text-weight-bold">
+        <div className="py-2 my-2 ">
           <label> Log In </label>
         </div>
         <form onSubmit={handleSubmit}>
-          <label for="username"> Username: </label>
+          <label htmlFor="username"> Username: </label>
           <input
-            class="input is-primary is-outlined"
+            className="input is-primary is-outlined"
             name="username"
             placeholder="username"
             id="username"
           />{" "}
           <br />
-          <label for="password"> Password: </label>
+          <label htmlFor="password"> Password: </label>
           <input
-            class="input is-primary is-outlined"
+            className="input is-primary is-outlined"
             type="password"
             password="password"
             placeholder="password"
@@ -64,7 +64,7 @@ const LogIn = (props) => {
           <br />
           <br />
           <input
-            class="button is-primary is-light is-outlined"
+            className="button is-primary is-light is-outlined"
             type="submit"
             value="Log in"
           />

@@ -13,7 +13,6 @@ import ReviewEdit from "./Components/ReviewEdit";
 const TrainStops = (props) => {
   const loggedContext = useContext(LoggedContext);
   const toggle = () => {
-    const burgerIcon = document.getElementById("burger");
     const navbarMenu = document.getElementById("nav-links");
     navbarMenu.classList.toggle("is-active");
   };
