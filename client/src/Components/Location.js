@@ -30,22 +30,25 @@ const Location = ({ logState }) => {
     };
     callGetDetails();
   }, [params.placeid]);
-  console.log(locationFetch);
+  console.log("locationfetch", locationFetch);
+
   return (
-    <div>
+    <div className="box">
       <div>
-        <h1> {locationFetch?.name} </h1>
-        {/* <img
-          src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationFetch?.photos?.[0]?.photo_reference}&key=${process.env.REACT_APP_API}`}
-          alt={`${locationFetch?.name}`}
-        /> */}
-        <h4>{locationFetch?.formatted_address}</h4>
-        <h4>Opening Hours:</h4>
-        <ul>
+        <div className="title is-2"> {locationFetch?.name} </div>
+        <div className="subtitle is-6">{locationFetch?.formatted_address}</div>
+        {locationFetch?.opening_hours ? (
+                  <div>Opening Hours</div>
+                ) : null }
+        <ul className="subtitle is-7">
           {locationFetch?.opening_hours?.weekday_text.map((t, index) => (
             <li key={index}>{t}</li>
           ))}
         </ul>
+        <img
+          src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationFetch?.photos?.[0]?.photo_reference}&key=${process.env.REACT_APP_API}`}
+          alt={`${locationFetch?.name}`}
+        />
       </div>
       <div>
         {loggedContext ? (
@@ -57,14 +60,18 @@ const Location = ({ logState }) => {
             setFetchReviews={setFetchReviews}
           />
         ) : (
-          <h1>Reviews</h1>
+          <div>
+            <div className="title">Reviews</div>
+          </div>
         )}
+        <div className="column is-two-third">
         <Reviews
           queryType="location"
           searchId={params.placeid}
           fetchReviews={fetchReviews}
           setFetchReviews={setFetchReviews}
         />
+        </div>
       </div>
     </div>
   );
