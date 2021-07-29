@@ -32,7 +32,7 @@ const LogIn = (props) => {
             "Error logging in! Please provide correct username and password."
           );
         } else {
-          console.log(resJson);
+          //console.log(resJson);
           props.setLogState(resJson);
           return history.push("/");
         }

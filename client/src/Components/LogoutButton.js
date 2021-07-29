@@ -30,7 +30,7 @@ const LogoutButton = (props) => {
       });
   };
   return (
-    <a href="/" class="navbar-item" onClick={loggingOut}>
+    <a href="/" className="navbar-item" onClick={loggingOut}>
       Log Out
       {logout}
     </a>

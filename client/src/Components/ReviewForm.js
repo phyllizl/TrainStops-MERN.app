@@ -31,7 +31,7 @@ const ReviewForm = ({
         }
       })
       .then((resJson) => {
-        console.log(resJson);
+        //console.log(resJson);
         resJson.filter((u) => {
           if (u.user_id === loggedContext?._id) {
             setCanReview(false);
@@ -47,7 +47,7 @@ const ReviewForm = ({
 
   const handleReview = (e) => {
     e.preventDefault();
-    console.log(e.target.elements.review.value);
+    //console.log(e.target.elements.review.value);
     const inputReview = e.target.elements.review.value;
     const postReview = {
       user_id: loggedContext?._id,
@@ -72,8 +72,8 @@ const ReviewForm = ({
         }
       })
       .then((resJson) => {
-        console.log(resJson);
-        console.log("fetchreviews", fetchReviews);
+        //console.log(resJson);
+        //console.log("fetchreviews", fetchReviews);
         setFetchReviews([...fetchReviews, resJson]);
         return history.push(`/location/${placeId}`);
       })

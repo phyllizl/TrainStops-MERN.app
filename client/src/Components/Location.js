@@ -7,7 +7,7 @@ require("dotenv").config();
 
 //This will be the Location (Hotspot) page that will show all the reviews for that particular Location.
 
-const Location = ({ logState }) => {
+const Location = () => {
   const params = useParams();
   const [locationFetch, setLocationFetch] = useState({});
   const [fetchReviews, setFetchReviews] = useState([]);
@@ -30,7 +30,7 @@ const Location = ({ logState }) => {
     };
     callGetDetails();
   }, [params.placeid]);
-  console.log("locationfetch", locationFetch);
+  //console.log("locationfetch", locationFetch);
 
   return (
     <div className="box">

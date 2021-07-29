@@ -27,21 +27,21 @@ const ReviewEdit = () => {
         }
       })
       .then((resJson) => {
-        console.log(resJson);
+        //console.log(resJson);
         setEditReview(resJson);
       })
       .catch((err) => console.error({ Error: err }));
   }, [params.reviewid]);
 
   const handleInput = (e) => {
-    const origReview = e.target.value;
-    console.log(origReview);
+    //const origReview = e.target.value;
+    //console.log(origReview);
     setEditReview({ ...editReview, reviews: e.target.value });
   };
 
   const handleEdit = (e) => {
     e.preventDefault();
-    console.log(e.target.elements.review.value);
+    //console.log(e.target.elements.review.value);
     const inputReview = e.target.elements.review.value;
     fetch(`/v1/reviews/${params.reviewid}`, {
       method: "PUT",

@@ -21,14 +21,14 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
         }
       })
       .then((resJson) => {
-        console.log(resJson);
+        //console.log(resJson);
         setFetchReviews(resJson);
       })
       .catch((err) => console.error({ Error: err }));
   }, [searchId, queryType]);
 
   const handleDelete = (reviewid) => {
-    console.log(reviewid);
+    //console.log(reviewid);
     fetch(`/v1/reviews/${reviewid}`, {
       method: "DELETE",
       headers: {
@@ -43,7 +43,7 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
         }
       })
       .then((resJson) => {
-        console.log(resJson);
+        //console.log(resJson);
         setFetchReviews(
           fetchReviews.filter((review) => review._id !== resJson._id)
         );
@@ -71,14 +71,13 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
                       Edit
                     </button>
                   </a>
-                  <a>
-                    <button
-                      className="button is-outlined is-danger"
-                      onClick={() => handleDelete(rev._id)}
-                    >
-                      Delete
-                    </button>
-                  </a>
+
+                  <button
+                    className="button is-outlined is-danger"
+                    onClick={() => handleDelete(rev._id)}
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>

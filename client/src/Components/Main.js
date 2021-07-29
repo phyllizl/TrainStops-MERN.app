@@ -89,7 +89,7 @@ const Main = () => {
       <div className="has-text-centered is-size-4 has-text-weight-bold">
         {/* East West Line */}
         <div className="py-2 my-2 ">
-          <label for="EW"> East West Line </label>
+          <label htmlFor="EW"> East West Line </label>
           <br />
 
           <div className="dropdown" id="EW" onClick={toggle}>
@@ -139,7 +139,7 @@ const Main = () => {
 
         {/* North South Line */}
         <div className="py-2 my-2 ">
-          <label for="NS"> North South Line </label>
+          <label htmlFor="NS"> North South Line </label>
           <br />
           <div className="dropdown" id="NS" onClick={NorthSouth}>
             <div className="dropdown-trigger">
@@ -175,7 +175,7 @@ const Main = () => {
 
         {/* DownTown Line */}
         <div className="py-2 my-2 ">
-          <label for="DT"> Downtown Line </label>
+          <label htmlFor="DT"> Downtown Line </label>
           <br />
           <div className="dropdown" id="DT" onClick={DownTown}>
             <div className="dropdown-trigger">
@@ -211,7 +211,7 @@ const Main = () => {
 
         {/* Circle Line */}
         <div className="py-2 my-2 ">
-          <label for="CC"> Circle Line </label>
+          <label htmlFor="CC"> Circle Line </label>
           <br />
           <div className="dropdown" id="CC" onClick={Circle}>
             <div className="dropdown-trigger">
@@ -247,7 +247,7 @@ const Main = () => {
 
         {/* North East Line */}
         <div className="py-2 my-2 ">
-          <label for="NE"> North East Line </label>
+          <label htmlFor="NE"> North East Line </label>
           <br />
           <div className="dropdown" id="NE" onClick={NorthEast}>
             <div className="dropdown-trigger">

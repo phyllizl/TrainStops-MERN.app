@@ -49,6 +49,7 @@ const SignUp = () => {
                 name="username"
                 placeholder="username"
                 id="username"
+                required="required"
               />
             </div>
             <div className="block">
@@ -59,6 +60,7 @@ const SignUp = () => {
                 password="password"
                 placeholder="password"
                 id="password"
+                required="required"
               />
             </div>
             <input

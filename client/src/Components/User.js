@@ -12,14 +12,14 @@ const User = (props) => {
   const loggedContext = useContext(LoggedContext);
 
   useEffect(() => {
-    console.log(params.userid);
+    //console.log(params.userid);
     const callGetDetails = async () => {
       try {
         const userFetch = await fetch(`/v1/users/${params.userid}`).then(
           (response) => response.json(),
           (err) => console.log(err)
         );
-        console.log(userFetch);
+        //console.log(userFetch);
         setUser(userFetch);
       } catch (err) {
         console.log(err);
@@ -32,12 +32,12 @@ const User = (props) => {
     <>
       <div className="block">
         {/* <section class="section"> */}
-        <div class="container">
+        <div className="container">
           {loggedContext ? (
             <>
-              <div class="title"> Hi {user.username}!</div> <br />
-              <div class="subtitle"> Your Reviews: </div>
-              <div class="container">
+              <div className="title"> Hi {user.username}!</div> <br />
+              <div className="subtitle"> Your Reviews: </div>
+              <div className="container">
                 <Reviews
                   queryType="users"
                   searchId={params.userid}
