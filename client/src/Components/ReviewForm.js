@@ -81,24 +81,34 @@ const ReviewForm = ({
   };
 
   return (
-    <div className="card">
+    <div className="block">
       <div className="card-content">
         <div className="content">
           <h1>Reviews</h1>
-            <form onSubmit={handleReview}>
-              <label htmlFor="review">How did you like this place?</label> <br/>
-              <input
+          <form onSubmit={handleReview}>
+            <div className="block">
+              <label htmlFor="review">How did you like this place?</label>{" "}
+              <br />
+              <textarea
+                className="textarea is-warning"
                 type="textfield"
                 name="review"
                 id="review"
                 placeholder="Type something"
               />
+            </div>
+            <div className="block">
               {canReview ? (
-                <button class="card-footer-item ">Post Review </button>
+                <button className="button is-link is-outlined is-warning">
+                  Post Review
+                </button>
               ) : (
-                <button disabled>Post Review</button>
+                <button className="button is-link is-outlined is-warning disabled">
+                  Post Review
+                </button>
               )}
-            </form>
+            </div>
+          </form>
         </div>
       </div>
     </div>

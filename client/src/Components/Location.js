@@ -34,23 +34,21 @@ const Location = ({ logState }) => {
 
   return (
     <div className="box">
-      <div>
+      <div className="block">
         <div className="title is-2"> {locationFetch?.name} </div>
         <div className="subtitle is-6">{locationFetch?.formatted_address}</div>
-        {locationFetch?.opening_hours ? (
-                  <div>Opening Hours</div>
-                ) : null }
+        {locationFetch?.opening_hours ? <div>Opening Hours</div> : null}
         <ul className="subtitle is-7">
           {locationFetch?.opening_hours?.weekday_text.map((t, index) => (
             <li key={index}>{t}</li>
           ))}
         </ul>
-        <img
+        {/* <img
           src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${locationFetch?.photos?.[0]?.photo_reference}&key=${process.env.REACT_APP_API}`}
           alt={`${locationFetch?.name}`}
-        />
+        /> */}
       </div>
-      <div>
+      <div className="block">
         {loggedContext ? (
           <ReviewForm
             queryType="location"
@@ -60,17 +58,17 @@ const Location = ({ logState }) => {
             setFetchReviews={setFetchReviews}
           />
         ) : (
-          <div>
+          <div className="block">
             <div className="title">Reviews</div>
           </div>
         )}
-        <div className="column is-two-third">
-        <Reviews
-          queryType="location"
-          searchId={params.placeid}
-          fetchReviews={fetchReviews}
-          setFetchReviews={setFetchReviews}
-        />
+        <div className="block">
+          <Reviews
+            queryType="location"
+            searchId={params.placeid}
+            fetchReviews={fetchReviews}
+            setFetchReviews={setFetchReviews}
+          />
         </div>
       </div>
     </div>
