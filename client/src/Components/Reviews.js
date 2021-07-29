@@ -64,6 +64,7 @@ const Reviews = ({
       <ul>
         {fetchReviews?.map((rev, index) => (
           <>
+            <br />
             <li key={index}>
               <div>
                 {queryType === "users" ? (
@@ -77,13 +78,13 @@ const Reviews = ({
                 {queryType === "users" ? (
                   <>
                     <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
-                      <button className="button is-link is-outlined">
+                      <button className="button is-link is-outlined is-warning">
                         Edit
                       </button>
                     </a>
                     <a>
                       <button
-                        className="button is-danger"
+                        className="button is-outlined is-danger"
                         onClick={() => handleDelete(rev._id)}
                       >
                         Delete

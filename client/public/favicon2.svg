@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 65 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;">
+    <g>
+        <path id="Shape_5_" d="M55,55.9L62.7,55.9L58,42L58,34C57.7,32.9 57,29 57,29L57,27L58,27C59.1,27 59,26.1 59,25L59,24C59,22.9 59.1,22 58,22L51,22C49.9,22 50,22.9 50,24L50,25C50,26.1 49.9,27 51,27L52,27L52,32L45,32L45,29L41,29L41,32L36,32L36,29L32,29L32,32L27,32L27,24L27.9,24C29,24 28.9,23.1 28.9,22L28.9,19C28.9,17.9 29,17 27.9,17L4,17C2.9,17 3,17.9 3,19L3,22C3,23.1 2.9,24 4,24L5,24L5,37.9L2,37.9C0.9,37.9 1,38.8 1,39.9L1,48.9C1,50 0.9,50.9 2,50.9L5,50.9" style="fill:none;fill-rule:nonzero;stroke:rgb(249,200,94);stroke-width:2px;"/>
+        <path id="Shape" d="M39.8,54.9L43.8,54.9" style="fill:none;fill-rule:nonzero;stroke:rgb(249,200,94);stroke-width:2px;stroke-linejoin:miter;"/>
+        <path id="Shape_1_" d="M22.103,54.9L28,54.9" style="fill:none;fill-rule:nonzero;stroke:rgb(249,200,94);stroke-width:2px;stroke-linejoin:miter;"/>
+        <rect id="Rectangle-path" x="9" y="25" width="5" height="11.9" style="fill:none;stroke:rgb(249,200,94);stroke-width:2px;"/>
+        <rect id="Rectangle-path_1_" x="18" y="25" width="5" height="7" style="fill:none;stroke:rgb(249,200,94);stroke-width:2px;"/>
+        <path id="Shape_2_" d="M21.9,46.9L59.7,46.9" style="fill:none;fill-rule:nonzero;stroke:rgb(249,200,94);stroke-width:2px;"/>
+        <path id="Shape_3_" d="M52.8,11.4L52.7,11.4C52.8,11.1 52.8,10.8 52.8,10.5C52.8,8.9 51.7,7.6 50.2,7.3C50,5.5 48.4,4.1 46.4,4.1L46,4.1C45.2,2.3 43.3,1 41.1,1C38.1,1 36,2.8 36,5.7C36,9.4 39,10.8 41.2,10.8C41.8,11.9 42.9,12.6 44.3,12.6C45,12.6 45.7,12.4 46.3,12C46.9,13.1 48,13.9 49.4,13.9C50,13.9 50.6,13.8 51,13.5C51.1,14.4 51.9,15.1 52.8,15.1C53.8,15.1 54.7,14.3 54.7,13.3C54.6,12.2 53.8,11.4 52.8,11.4Z" style="fill:none;fill-rule:nonzero;stroke:rgb(249,200,94);stroke-width:2px;stroke-linejoin:miter;"/>
+        <path id="Shape_4_" d="M14,42L58,42" style="fill:none;fill-rule:nonzero;stroke:rgb(249,200,94);stroke-width:2px;"/>
+        <circle id="Oval" cx="14" cy="51" r="9" style="fill:none;stroke:rgb(249,200,94);stroke-width:2px;"/>
+        <circle id="Oval_1_" cx="34" cy="54" r="6" style="fill:none;stroke:rgb(249,200,94);stroke-width:2px;"/>
+        <circle id="Oval_2_" cx="50" cy="54" r="6" style="fill:none;stroke:rgb(249,200,94);stroke-width:2px;"/>
+    </g>
+</svg>
