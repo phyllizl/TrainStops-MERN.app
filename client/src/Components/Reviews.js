@@ -53,16 +53,6 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
   };
 
   return (
-<<<<<<< HEAD
-    <div>
-      <br />
-      {fetchReviews.length === 0 ? null : <h1>Reviews</h1>}
-      <ul>
-        {fetchReviews?.map((rev, index) => (
-          <>
-            <li key={index}>
-              <div>
-=======
     <div className="container">
     <div className="columns is-multiline">
       
@@ -72,7 +62,6 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
             <div className="column is-4 " key={index}>
               <div className="card">
               <div className="card-content">
->>>>>>> phylliz
                 {queryType === "users" ? (
                   <>
                   

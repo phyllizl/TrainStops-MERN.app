@@ -60,17 +60,14 @@ const Location = ({ logState }) => {
         ) : (
           <></>
         )}
-<<<<<<< HEAD
-
-=======
         <div>
->>>>>>> phylliz
         <Reviews
           queryType="location"
           searchId={params.placeid}
           fetchReviews={fetchReviews}
           setFetchReviews={setFetchReviews}
         />
+      </div>
       </div>
     </div>
   );

@@ -32,26 +32,6 @@ const User = (props) => {
     <>
       <div>
 
-<<<<<<< HEAD
-        <div class="card-content">
-          {loggedContext ? (
-            <>
-              <p class="title"> Hi {user.username}!</p>
-
-              <p class="subtitle">
-                <Reviews
-                  queryType="users"
-                  searchId={params.userid}
-                  fetchReviews={fetchReviews}
-                  setFetchReviews={setFetchReviews}
-                />
-              </p>
-            </>
-          ) : (
-            <a href="/login">Please log in</a>
-          )}
-        </div>
-=======
         {/* <section class="section"> */}
         <div class="container">
             {loggedContext ? (
@@ -74,7 +54,6 @@ const User = (props) => {
             )}
           </div>
         {/* </section> */}
->>>>>>> phylliz
       </div>
     </>
   );
