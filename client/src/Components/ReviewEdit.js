@@ -79,7 +79,7 @@ const ReviewEdit = () => {
               name="review"
               id="review"
               value={editReview.reviews}
-            ></textarea>
+            />
           </div>
           <button className="button is-link is-outlined is-warning">
             Edit Review

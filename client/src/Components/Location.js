@@ -34,7 +34,7 @@ const Location = ({ logState }) => {
 
   return (
     <div className="box">
-      <div>
+      <div className="block">
         <div className="title is-2"> {locationFetch?.name} </div>
         <div className="subtitle is-6">{locationFetch?.formatted_address}</div>
         {locationFetch?.opening_hours ? <div>Opening Hours</div> : null}
@@ -48,7 +48,7 @@ const Location = ({ logState }) => {
           alt={`${locationFetch?.name}`}
         />
       </div>
-      <div>
+      <div className="block">
         {loggedContext ? (
           <ReviewForm
             queryType="location"
@@ -58,16 +58,18 @@ const Location = ({ logState }) => {
             setFetchReviews={setFetchReviews}
           />
         ) : (
-          <></>
+          <div className="block">
+            <div className="title">Reviews</div>
+          </div>
         )}
-        <div>
-        <Reviews
-          queryType="location"
-          searchId={params.placeid}
-          fetchReviews={fetchReviews}
-          setFetchReviews={setFetchReviews}
-        />
-      </div>
+        <div className="block">
+          <Reviews
+            queryType="location"
+            searchId={params.placeid}
+            fetchReviews={fetchReviews}
+            setFetchReviews={setFetchReviews}
+          />
+        </div>
       </div>
     </div>
   );

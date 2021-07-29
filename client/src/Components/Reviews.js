@@ -53,53 +53,45 @@ const Reviews = ({ searchId, queryType, fetchReviews, setFetchReviews }) => {
   };
 
   return (
-    <div className="container">
     <div className="columns is-multiline">
-      
-        {fetchReviews?.map((rev, index) => (
-          <>
-            <br />
-            <div className="column is-4 " key={index}>
-              <div className="card">
-              <div className="card-content">
-                {queryType === "users" ? (
-                  <>
-                  
-                    <a href={`/location/${rev.location_id}`}>
-                      {rev.location_name}
-                    </a>{" "}
-                    {rev.reviews}
-                  </>
-                ) : (
-                  `${rev.reviews} - ${rev.username}`
-                )}
-              </div>
-
-              <div className="card-footer">
-                {queryType === "users" ? (
-                  <>
-                    <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
-                      <button className="button is-link is-outlined is-warning">
-                        Edit
-                      </button>
-                    </a>
-                    <a>
-                      <button
-                        className="button is-outlined is-danger"
-                        onClick={() => handleDelete(rev._id)}
-                      >
-                        Delete
-                      </button>
-                    </a>
-                  </>
-                ) : null}
-              </div>
-              </div>
+      {fetchReviews?.map((rev, index) => (
+        <>
+          <div className="column is-4" key={index}>
+            <div className="card">
+              {queryType === "users" ? (
+                <header className="card-header">
+                  <a href={`/location/${rev.location_id}`}>
+                    {rev.location_name}
+                  </a>{" "}
+                  {rev.reviews}
+                </header>
+              ) : (
+                <div className="card-content">
+                  <div className="content">{rev.reviews}</div>
+                  <div className="card-footer">{rev.username}</div>
+                </div>
+              )}
             </div>
-          </>
-        ))}
-      
-    </div>
+          </div>
+          {queryType === "users" ? (
+            <div className="block">
+              <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
+                <button className="button is-link is-outlined is-warning">
+                  Edit
+                </button>
+              </a>
+              <a>
+                <button
+                  className="button is-outlined is-danger"
+                  onClick={() => handleDelete(rev._id)}
+                >
+                  Delete
+                </button>
+              </a>
+            </div>
+          ) : null}
+        </>
+      ))}
     </div>
   );
 };
