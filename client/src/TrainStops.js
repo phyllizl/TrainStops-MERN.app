@@ -81,14 +81,14 @@ const TrainStops = (props) => {
           <Location logState={props.logState} />
         </Route>
 
+        {/* Route for user to edit review */}
+        <Route path="/users/:userid/edit/:reviewid">
+          <ReviewEdit />
+        </Route>
+
         {/* Route to User Page when user is logged in  */}
         <Route path="/users/:userid">
           <User />
-        </Route>
-
-        {/* Route for user to edit review */}
-        <Route path="/users/:userid/:reviewid">
-          <ReviewEdit />
         </Route>
       </Switch>
     </>
