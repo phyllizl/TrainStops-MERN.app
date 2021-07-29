@@ -39,7 +39,7 @@ const User = (props) => {
           {loggedContext ? (
             <>
               <p class="title"> Hi {user.username}!</p>
-              <p class="card-header-title"> Reviews </p>
+
               <p class="subtitle">
                 <Reviews
                   queryType="users"
