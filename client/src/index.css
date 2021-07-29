@@ -31,3 +31,11 @@ code {
 .NEcolor {
   color: darkviolet;
 }
+
+.bottom {
+  margin-top: 120px;
+  padding: 10px;
+  height: 100%;
+  position: relative;
+  bottom: 0px;
+}
