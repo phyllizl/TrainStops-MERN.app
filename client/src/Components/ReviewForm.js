@@ -1,11 +1,19 @@
 import * as React from "react";
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { LoggedContext } from "../App";
 
-const ReviewForm = ({ placeId, placeName, user, queryType }) => {
+const ReviewForm = ({
+  placeId,
+  placeName,
+  fetchReviews,
+  setFetchReviews,
+  queryType,
+}) => {
   const loggedContext = useContext(LoggedContext);
   console.log("context", loggedContext);
   console.log("context id", loggedContext?._id);
+  const history = useHistory();
 
   const handleReview = (e) => {
     e.preventDefault();
@@ -34,6 +42,8 @@ const ReviewForm = ({ placeId, placeName, user, queryType }) => {
       })
       .then((resJson) => {
         console.log(resJson);
+        setFetchReviews([...fetchReviews, resJson]);
+        return history.push(`/location/${placeId}`);
       })
       .catch((err) => console.error({ Error: err }));
   };
@@ -42,9 +52,14 @@ const ReviewForm = ({ placeId, placeName, user, queryType }) => {
       <h1>Reviews</h1>
       <div>
         <form onSubmit={handleReview}>
-          <label htmlFor="review">Type Review</label>
-          <input type="textfield" name="review" id="review" />
-          <button>Review Location?</button>
+          <label htmlFor="review">How did you like this place?</label>
+          <input
+            type="textfield"
+            name="review"
+            id="review"
+            placeholder="Type something"
+          />
+          <button>Post Review</button>
         </form>
       </div>
     </div>

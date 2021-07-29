@@ -49,7 +49,6 @@ const Location = ({ logState }) => {
           queryType="location"
           placeId={params.placeid}
           placeName={locationFetch?.name}
-          user={logState}
         />
         <Reviews queryType="location" searchId={params.placeid} />
       </div>

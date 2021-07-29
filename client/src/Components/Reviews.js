@@ -1,13 +1,14 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const Reviews = ({ searchId, queryType }) => {
   const [fetchReviews, setFetchReviews] = useState();
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`/v1/reviews/${queryType}/${searchId}`, {
       method: "GET",
-      // body: JSON.stringify(postReview),
       headers: {
         "Content-Type": "application/json",
       },
@@ -26,8 +27,29 @@ const Reviews = ({ searchId, queryType }) => {
       .catch((err) => console.error({ Error: err }));
   }, [searchId, queryType]);
 
-  const handleClick = (reviewid) => {
+  const handleDelete = (reviewid) => {
     console.log(reviewid);
+    fetch(`/v1/reviews/${reviewid}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Error in network");
+        }
+      })
+      .then((resJson) => {
+        console.log(resJson);
+        setFetchReviews(
+          fetchReviews.filter((review) => review._id !== resJson._id)
+        );
+        return history.push(`/users/${searchId}`);
+      })
+      .catch((err) => console.error({ Error: err }));
   };
 
   return (
@@ -46,7 +68,11 @@ const Reviews = ({ searchId, queryType }) => {
                     <a href={`/${queryType}/${searchId}/edit/${rev._id}`}>
                       Edit
                     </a>
-                    <button onClick={() => handleClick(rev._id)}>Edit</button>
+                    <a>
+                      <button onClick={() => handleDelete(rev._id)}>
+                        Delete
+                      </button>
+                    </a>
                   </>
                 ) : null}
               </div>

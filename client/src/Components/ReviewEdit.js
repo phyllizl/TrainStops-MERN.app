@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
+import { useHistory } from "react-router-dom";
 import { LoggedContext } from "../App";
 
 const ReviewEdit = ({ placeId, placeName, user, queryType }) => {
@@ -9,6 +10,7 @@ const ReviewEdit = ({ placeId, placeName, user, queryType }) => {
   console.log("context", loggedContext);
   const params = useParams();
   console.log(params.reviewid);
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`/v1/reviews/${params.reviewid}`, {
@@ -27,6 +29,7 @@ const ReviewEdit = ({ placeId, placeName, user, queryType }) => {
       .then((resJson) => {
         console.log(resJson);
         setEditReview(resJson);
+        return history.push();
       })
       .catch((err) => console.error({ Error: err }));
   }, [params.reviewid]);
@@ -51,6 +54,7 @@ const ReviewEdit = ({ placeId, placeName, user, queryType }) => {
       })
       .then((resJson) => {
         console.log(resJson);
+        return history.push(`/users/${params.userid}`);
       })
       .catch((err) => console.error({ Error: err }));
   };
