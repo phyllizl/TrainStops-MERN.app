@@ -24,12 +24,12 @@ const TrainStops = (props) => {
           <a href="/" className="navbar-item">
             <img src="/favicon.svg" alt="Train Logo" />
           </a>
-        </div>
-
-        {/* for mobile */}
-        <div className="navbar-burger" id="burger" onClick={toggle}>
-          <span></span>
-          <span></span>
+          {/* for mobile */}
+          <div className="navbar-burger" id="burger" onClick={toggle}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
 
         <div className="navbar-menu" id="nav-links">
