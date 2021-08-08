@@ -52,7 +52,7 @@ router.get("/:id/hotspots", (req, res) => {
         params: {
           location: { lat: mrtLat, lng: mrtLng },
           radius: 500,
-          type: "point_of_interest",
+          type: "place_of_interest",
           key: process.env.APIKEY,
         },
         timeout: 1000, // milliseconds
